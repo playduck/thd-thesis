@@ -1,20 +1,19 @@
 OUTPUTDIRECTORY = dist
 MAINFILE = document
+EXTRA_MEM = 2000000
+OPEN_CMD = open
 
 build:
-	mkdir -p ${OUTPUTDIRECTORY}
-	for DIR in $(shell find . -maxdepth 1 -mindepth 1 -type d \( ! -name .vscode ! -name binary ! -name venv ! -name tools \) -exec basename '{}' \;) ; do mkdir -p ${OUTPUTDIRECTORY}/$$DIR ; done
-	xelatex -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
+# initial compilation
+	xelatex --extra-mem-top=${EXTRA_MEM} -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
 	makeglossaries -d ${OUTPUTDIRECTORY} ${MAINFILE}
-	# xelatex -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
-
 	biber -D --output-directory ${OUTPUTDIRECTORY} ${MAINFILE}
-	xelatex -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
-	xelatex --shell-escape -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
-	#xelatex -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
+# post compilation
+	xelatex --extra-mem-top=${EXTRA_MEM} -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
+	xelatex --shell-escape --extra-mem-top=${EXTRA_MEM} -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
 
 open:
-	open ${OUTPUTDIRECTORY}/${MAINFILE}.pdf
+	${OPEN_CMD} ${OUTPUTDIRECTORY}/${MAINFILE}.pdf
 
 clean:
 	rm -rf ./${OUTPUTDIRECTORY}
