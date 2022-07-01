@@ -1,0 +1,16 @@
+{
+    "editor.wordWrap": "on",
+    
+    "cSpell.enabled": false,
+    "cSpell.language": "de",
+
+    "[latex]": {
+        "editor.quickSuggestions": true,
+        "editor.quickSuggestionsDelay": 20,
+        "editor.wordBasedSuggestions": false,
+        "editor.suggestOnTriggerCharacters": true,
+        "editor.suggest.showSnippets": true,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.snippetSuggestions": "top",
+    },
+}

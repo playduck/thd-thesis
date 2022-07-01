@@ -1,0 +1,308 @@
+{
+	"inline-math": {
+		"prefix": "mm",
+		"body": [
+			"$${0}$"
+		],
+		"description": "inline-math"
+	},
+
+	"display-math": {
+		"prefix": [
+			"nn",
+		],
+		"body": [
+			"$$${0}$$"
+		],
+		"description": "display-math"
+	},
+
+	"align math": {
+		"prefix": [
+			"al",
+			"align"
+		],
+		"body": [
+			"\\begin{align*}",
+			"${1} &= ${2} \\\\\\",
+			"\\end{align*}"
+		],
+		"description": "align math"
+	},
+
+	"gather math": {
+		"prefix": [
+			"gg",
+			"gather"
+		],
+		"body": [
+			"\\begin{gather*}",
+			"${1} \\\\\\",
+			"\\end{gather*}"
+		],
+		"description": "gather math"
+	},
+
+	"matrix math": {
+		"prefix": "matrix, xx",
+		"body": [
+			"\\begin{pmatrix} $1 \\end{pmatrix}"
+		],
+		"description": "matrix enviornment"
+	},
+
+	"vmatrix math": {
+		"prefix": "yy",
+		"body": [
+			"\\begin{vmatrix} $1 \\end{vmatrix}"
+		],
+		"description": "matrix enviornment"
+	},
+
+	"laplace": {
+		"prefix": "lapl",
+		"body": [
+			"\\mathfrak{L}\\left\\{ $1 \\right\\\\}"
+		],
+		"description": "Laplace Transform"
+	},
+
+	"inv-aplace": {
+		"prefix": "invlapl",
+		"body": [
+			"\\mathfrak{L}^{-1}\\left\\{ $1 \\right\\\\}"
+		],
+		"description": "inverse Laplace Transform"
+	},
+
+	"latex enviornment": {
+		"prefix": "env",
+		"body": [
+			"\\begin{${1:enviornment}}",
+			"$2",
+			"\\end{${1:enviornment}}"
+		],
+		"description": "latex enviornment"
+	},
+
+	"overline": {
+		"prefix": [
+			"\\overline"
+		],
+		"body": [
+			"\\overline{${1:var}}"
+		],
+		"description": "overline"
+	},
+
+	"overrightarrow": {
+		"prefix": [
+			"or",
+			"ovr",
+			"overrightarrow",
+			"\\overrightarrow"
+		],
+		"body": [
+			"\\ovr{${1}}"
+		],
+		"description": "overrightarrow"
+	},
+
+	"vector": {
+		"prefix": [
+			"vv",
+			"vector",
+			"vec",
+			"\\vec"
+		],
+		"body": [
+			"\\vec{${1}}"
+		],
+		"description": "vector"
+	},
+
+	"underline": {
+		"prefix": [
+			"udr",
+			"\\underline"
+		],
+		"body": [
+			"\\underline{${1:var}}"
+		],
+		"description": "underline"
+	},
+
+	"fraction": {
+		"prefix": [
+			"frac",
+			"\\frac",
+			// "/"
+		],
+		"body": [
+			"\\frac{${1}}{${2}}$0"
+		],
+		"description": "fraction"
+	},
+
+	"sqrt": {
+		"prefix": [
+			"sqrt",
+			"\\sqrt",
+			"root"
+		],
+		"body": [
+			"\\sqrt{${1}} $0"
+		],
+		"description": "squareroot"
+	},
+
+	"power": {
+		"prefix": [
+			"^{",
+			"**",
+			"pow"
+		],
+		"body": [
+			"^{$0}"
+		],
+		"description": "power"
+	},
+
+	"text": {
+		"prefix": [
+			"\\text",
+			"text",
+			"tt"
+		],
+		"body": [
+			"\\text{$1}"
+		],
+		"description": "text"
+	},
+
+	"color": {
+		"prefix": [
+			"\\textcolor",
+			"textcolor",
+			"color"
+		],
+		"body": [
+			"\\textcolor{${1|red,blue,green,yellow,violet,brown,orange,cyan,magenta,lime,purple|}}{$2}"
+		],
+		"description": "text"
+	},
+
+	"cdot": {
+		"prefix": [
+			"*", "\\cdot"
+		],
+		"body": [
+			"\\cdot "
+		],
+		"description": "cdot"
+	},
+
+	"2ex": {
+		"prefix": [
+			"\\\\[2ex]"
+		],
+		"body": [
+			"\\\\\\[${1:2}ex]",
+		],
+		"description": "newline spacing"
+	},
+
+	"rightarrow": {
+		"prefix": "ra",
+		"body": [
+			"\\rightarrow"
+		],
+		"description": "rightarrow"
+	},
+
+	"Rightarrow": {
+		"prefix": "Ra",
+		"body": [
+			"\\Rightarrow"
+		],
+		"description": "Rightarrow"
+	},
+
+	"Round Bracket": {
+		"prefix": [
+			"bb",
+			"()"
+		],
+		"body": [
+			"\\left( ${1}\\right)"
+		],
+		"description": "Round Bracket"
+	},
+
+	"Curly Bracket": {
+		"prefix": "cc",
+		"body": [
+			"\\left\\{ ${1} \\right\\\\}"
+		],
+		"description": "Curly Bracket"
+	},
+
+
+	"Substitution": {
+		"prefix": "sub",
+		"body": [
+			"\\left< \\begin{matrix} ${1} \\end{matrix} \\right>${2}"
+		],
+		"description": "Substitution"
+	},
+
+
+	"quotationmarks": {
+		"prefix": [
+			"\"\"",
+			"quote"
+		],
+		"body": [
+			"\\glqq ${1}\\grqq"
+		],
+		"description": "quotations"
+	},
+
+	"tikz figure": {
+		"prefix": "tikz",
+		"body": [
+			"\\begin{figure} [h]",
+			"\\centering",
+			"\\begin{tikzpicture}[scale=1]",
+			"    \\draw[step=1cm, gray,very thin] (${1:negativeX},${2:negativeY}) grid (${3:positiveX},${4:positiveY});",
+			"",
+			"    \\draw[thick,->] (${1:negativeX}, 0) -- (${3:positiveX}, 0) node[below] {\\$x\\$};",
+			"    \\draw[thick,->] (0, ${2:negativeY}) -- (0, ${4:positiveY}) node[left] {\\$y\\$};",
+			"    \\draw (0, 0) node[below left] {0};",
+			"",
+			"    ${5}",
+			"",
+			"\\end{tikzpicture}",
+			"\\caption{${6}}",
+			"\\end{figure}",
+			""
+		],
+		"description": "tikz figure"
+	},
+
+	"circuit tikz figure": {
+		"prefix": "circ",
+		"body": [
+			"\\begin{figure} [h]",
+			"\\centering",
+			"    \\begin{circuitikz}[]",
+			"    \\draw ${1}",
+			"    \\end{circuitikz}",
+			"\\caption{${6}}",
+			"\\end{figure}",
+			""
+		],
+		"description": "circuit tikz figure"
+	},
+
+}
