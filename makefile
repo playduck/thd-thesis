@@ -2,7 +2,7 @@ OUTPUTDIRECTORY = dist
 MAINFILE = document
 
 ifeq ($(OS),Windows_NT)
-	OPEN = start
+	OPEN = start texworks
 	EXTRA = --extra-mem-top=2000000
 else
 	OPEN = open
