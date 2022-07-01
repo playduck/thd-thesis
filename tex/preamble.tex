@@ -16,10 +16,6 @@
 \newcommand\hlc{\color{hlc}}
 
 % FONT COLOR
-% \addtokomafont{section}{\hlc}
-% \addtokomafont{subsection}{\hlc}
-% \addtokomafont{subsubsection}{\hlc}
-% \addtokomafont{paragraph}{\hlc}
 \addtokomafont{disposition}{\hlc\rmfamily}
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
 
@@ -74,12 +70,10 @@
 \captionsetup[subtable]{labelformat=simple, labelsep=colon}
 
 % TOC
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
 \addto\captionsngerman{\renewcommand*\contentsname{Inhaltsverzeichnis}}
 \addto\captionsngerman{\renewcommand*\listfigurename{Abbildungsverzeichnis}}
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
-% \usepackage[nottoc]{tocbibind}
 
 % HEADER & FOOTER
 \usepackage{scrlayer}
@@ -110,7 +104,6 @@
 \floatstyle{ruled}
 \newfloat{program}{thp}{lop}
 \floatname{program}{Program}
-% \newfloat{figure}{thp}{lop}
 \floatname{figure}{Abbildung}
 \renewcommand{\thetable}{\arabic{table}}
 \renewcommand{\thefigure}{\arabic{figure}}
