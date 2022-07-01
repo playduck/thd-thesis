@@ -1,11 +1,15 @@
 {
     "editor.wordWrap": "on",
-    
+
     "cSpell.enabled": false,
     "cSpell.language": "de",
 
     "[latex]": {
-        "editor.quickSuggestions": true,
+        "editor.quickSuggestions": {
+            "comments": "on",
+            "strings": "on",
+            "other": "on"
+        },
         "editor.quickSuggestionsDelay": 20,
         "editor.wordBasedSuggestions": false,
         "editor.suggestOnTriggerCharacters": true,
