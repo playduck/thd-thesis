@@ -1,0 +1,175 @@
+% Robin Prillwitz 2022
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% LOCAL
+\usepackage[ngerman]{babel}
+\usepackage[iso,german]{isodate}
+\usepackage{hyphenat}
+\hyphenation{Mathe-matik wieder-gewinnen}
+\usepackage[babel=true]{csquotes}
+
+% COLOR
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\definecolor{hlc}{HTML}{000000}
+\newcommand\hlc{\color{hlc}}
+
+% FONT COLOR
+% \addtokomafont{section}{\hlc}
+% \addtokomafont{subsection}{\hlc}
+% \addtokomafont{subsubsection}{\hlc}
+% \addtokomafont{paragraph}{\hlc}
+\addtokomafont{disposition}{\hlc\rmfamily}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+
+% FONT
+\usepackage{fontspec}
+\usepackage{textcomp}
+\newfontfamily\Verdana{Verdana}[Scale=MatchLowercase, Ligatures=TeX]
+\newfontfamily\Helvetica{Helvetica Neue}[Scale=MatchLowercase, Ligatures=TeX]
+\newfontfamily\FiraCode{Fira Code}[Scale=MatchLowercase, Ligatures=TeX]
+\newfontfamily\MinionPro{Minion Pro}[Scale=MatchLowercase, Ligatures=TeX]
+\setsansfont[Ligatures=TeX]{Helvetica Neue}
+\setmonofont[Scale=MatchLowercase, Ligatures=TeX, Contextuals={Alternate}]{Fira Code}
+\setmainfont[Ligatures=TeX]{Minion Pro}
+
+% UTIL
+\usepackage{geometry}
+\usepackage[indent=0pt]{parskip}
+\usepackage{lipsum}
+\usepackage{ragged2e}
+\usepackage{seqsplit}
+\usepackage{tabto}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{fullpage}
+\usepackage{textcomp}
+\usepackage{hologo}
+\usepackage{microtype}
+\usepackage[inline]{enumitem}
+\usepackage{url}
+\usepackage{pdfpages}
+%\usepackage{sectsty}
+
+\usepackage{ifplatform}
+\renewcommand{\macosxname}{{\Helvetica MacOs}}
+
+% FIGURE
+\usepackage{float}
+\usepackage[margin=15pt,font=footnotesize,labelfont={color=hlc,bf,sf}]{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{bigfoot}
+\interfootnotelinepenalty=10000
+
+% GRAPHIC
+\usepackage{graphicx}
+\usepackage{grffile}
+\graphicspath{{img/}}
+
+% TABLE
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\captionsetup[table]{labelformat=simple, labelsep=colon}
+\captionsetup[subtable]{labelformat=simple, labelsep=colon}
+
+% TOC
+\usepackage{tocloft}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\addto\captionsngerman{\renewcommand*\contentsname{Inhaltsverzeichnis}}
+\addto\captionsngerman{\renewcommand*\listfigurename{Abbildungsverzeichnis}}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+% \usepackage[nottoc]{tocbibind}
+
+% HEADER & FOOTER
+\usepackage{scrlayer}
+\usepackage{scrlayer-scrpage}
+\ofoot*{\pagemark}
+\cfoot*{}
+
+
+% MATH
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{siunitx}
+
+% FLOAT COUNTER
+\floatstyle{ruled}
+\newfloat{program}{thp}{lop}
+\floatname{program}{Program}
+% \newfloat{figure}{thp}{lop}
+\floatname{figure}{Abbildung}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+% TIKZ & PGF
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.markings}
+\usepackage{tikz-timing}
+\usetikztiminglibrary[rising arrows]{clockarrows}
+\usepackage{tikzpagenodes}
+\usepackage[european, betterproportions]{circuitikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{pgfgantt}
+\pgfplotsset{
+  table/search path={./data},
+}
+\usepackage{xparse}
+\NewDocumentCommand{\busref}{som}{\texttt{%
+#3%
+\IfValueTF{#2}{[#2]}{}%
+\IfBooleanTF{#1}{\#}{}%
+}}
+
+% APPENDIX
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixpagename}{Anhang}
+\renewcommand{\appendixtocname}{Anhang}
+
+% CODE
+\usepackage{dirtree}
+\usepackage{listings}
+\renewcommand\lstlistingname{Sourcecode} % Change language of section name
+\lstset{ % General setup for the package
+    language=C++,
+    rangeprefix=//\ ---\ ,rangesuffix=\ ---,
+    includerangemarker=false,
+    numberstyle=\FiraCode\color{black},
+    basicstyle=\FiraCode\color{black},
+    backgroundcolor=\color{White},
+    keywordstyle=\color{Orchid}\bfseries,
+    rulesepcolor=\color{DarkGray},
+    rulecolor=\color{Black},
+    stringstyle=\color{Emerald}\rmfamily,
+    commentstyle=\color{LightSlateGrey},
+    directivestyle={\color{RoyalPurple}},
+    %
+    emph={},
+    emphstyle={\color{BlueViolet}},
+    %
+    otherkeywords = {;,<<,>>,++,|},
+    keywordstyle=\color{WildStrawberry},
+    numbers=left,
+    frame=shadowbox,
+    tabsize=4,
+    columns=fixed,
+    showstringspaces=true,
+    showtabs=false,
+    showspaces=false,
+    keepspaces,
+    breaklines=true,
+    captionpos=b,
+    title=\lstname,
+    float,
+    belowskip=-0.2cm
+}
+
+% LINKS
+\usepackage[hidelinks]{hyperref}
+\urlstyle{tt}

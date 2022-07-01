@@ -1,0 +1,98 @@
+\section{Inhalt}
+
+\subsection{Akronyme}
+
+Das ist ein \gls{acr}.
+Diese kann man in dem \gls{glossary} finden.
+
+\subsection{Abbildungen}
+
+In \autoref{fig:exampleImage} wird ein Beispielbild gezeigt.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{test.jpg}
+    \caption[Beispielbild]{Beispielbild von \citeauthor{exampleImage} aus \autocite{exampleImage}.}
+    \label{fig:exampleImage}
+\end{figure}
+
+In \autoref{fig:exampleFigure} wird eine Beispielgraph dargestellt.
+
+\begin{figure}[h]
+    \centering
+    \begin{subfigure}{0.45\textwidth}
+        \begin{tikzpicture}
+            \begin{axis}[width=1.0\textwidth]
+            \addplot[color=red]{exp(x)};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Expontentialfunktion in 2D}
+        \label{fig:2d-exp}
+    \end{subfigure}
+    \begin{subfigure}{0.45\textwidth}
+        \begin{tikzpicture}
+            \begin{axis}[width=1.0\textwidth]
+                \addplot3[surf]{exp(-x^2-y^2)*x};
+            \end{axis}
+        \end{tikzpicture}
+        \caption{Expontentialfunktion in 3D}
+        \label{fig:3d-exp}
+    \end{subfigure}
+    \caption[Beispielgraph]{Beispielgraph in \textsc{pfgplots}.}
+    \label{fig:exampleFigure}
+\end{figure}
+
+\subsection{Tabelle}
+
+Es folgt nun eine Tabelle in \autoref{tab:exampleTable}.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|l|l|}
+        \hline
+        \textbf
+        Land & Hauptstadt
+        \normalfont \\
+        \hline
+        \hline
+        Deutschland & Berlin\\
+        \hline
+        Simbabwe & Harare\\
+        \hline
+        Grönland & Nuuk\\
+        \hline
+    \end{tabular}
+    \caption{Beispieltabelle}
+    \label{tab:exampleTable}
+\end{table}
+
+\subsection{Mathe}
+
+Die Riemannsche Zeta-Funktion ist in \autoref{eq:exampleEquation} aufgeführt
+
+\begin{equation}
+\begin{gathered}
+\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \frac{1}{1^s} + \frac{1}{2^s} + \frac{1}{3^2} + \ldots \\[2ex]
+\text{für } \Re(s) > 1 \text{ und dessen analytischer Kontinuation}
+\end{gathered}
+\label{eq:exampleEquation}
+\end{equation}
+
+\subsection{Quellcode}
+
+In \autoref{code:exampleCode} ist Quellcode gezeigt.
+
+\begin{lstlisting}[
+    language=C,
+    caption={Ein einfacher C code}, language=python, label=code:exampleCode, float=h
+]
+#include <stdlib.h>
+#include <stdio.h>
+
+int main(void)  {
+    printf("Hello World!\n");
+    return EXIT_SUCCESS;
+}
+\end{lstlisting}
+
+\input{text/topic/topic.tex}

@@ -1,0 +1,55 @@
+% Robin Prillwitz 2022
+
+% Titlepage in accordance to:
+% https://ec.th-deg.de/Studierende/Antraege-und-Organisatorisches/AI/anmeldung_ai_bachelor.pdf
+
+\newgeometry{
+    left=1.50cm,
+    right=1.50cm,
+    top=1.11cm,
+    bottom=2cm
+}
+\begin{titlepage}
+    % page setup
+    \thispagestyle{empty}
+    \setcounter{page}{0}
+    % page outline
+    \begin{tikz}[remember picture,overlay]
+        \draw[black, line width=1pt]
+        (current page text area.south west) rectangle
+        (current page text area.north east);
+    \end{tikz}
+    % write text
+    \begin{center}
+    {
+        \Verdana
+        \fontsize{14}{28}\selectfont
+        \vspace{1cm}
+        Technische Hochschule Deggendorf\\
+        \vspace{2cm}
+        Fakultät \faculty\\
+        (\degreeType -Studiengang \degreeCourse)\\
+        \vspace{3cm}
+        \textbf{\titleGer}\\
+        \textbf{\titleEng}\\
+        \vspace{3cm}
+        \degreeType arbeit zur Erlangung des akademischen Grades:\\
+        \degreeType\ of \degreeDisc\\
+        an der Technischen Hochschule Deggendorf\\
+        \vspace{3cm}
+        \fontsize{14}{24.4}\selectfont
+        % Name table
+        \begin{tabularx}{0.9\textwidth}{
+            >{\hsize=0.9\hsize\linewidth=\hsize}X
+            >{\hsize=0.5\hsize\linewidth=\hsize}X
+        }
+            vorgelegt von: & Prüfer: \\
+            \authorLast, \authorFirst & \auditor \\
+            \matrnr & \\
+            am: \date & %
+        \end{tabularx}
+    }
+    \end{center}
+\end{titlepage}
+\restoregeometry
+\newpage

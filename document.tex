@@ -1,0 +1,90 @@
+% Robin Prillwitz 2021
+\documentclass[11pt,a4paper]{scrartcl}
+
+\input{./tex/preamble}
+\input{./tex/bibliography}
+\input{./tex/glossary}
+
+%
+\def \faculty       {Angewandte Informatik}
+\def \degreeType    {Bachelor}
+\def \degreeDisc    {Engineering}
+\def \degreeCourse  {Angewandte Informatik}
+\def \titleGer      {Titel der Arbeit}
+\def \titleEng      {Title of the Work}
+%
+\def \auditor       {Professor Bösnecker}
+%
+\def \authorFirst   {Robin}
+\def \authorLast    {Prillwitz}
+\def \matrnr        {00805291}
+\def \date          {\today}
+
+% Highlight color
+% Hex Foramt: 0xRRGGBB
+\definecolor{hlc}{HTML}{AA0044}
+
+\def \stretch {1}
+
+\begin{document}
+\setstretch{1.0}
+
+% Title page
+\include{./tex/titlepage}
+
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+% Table of Contents
+\tableofcontents
+
+% Table of Tables
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+\listoftables
+
+% Table of Figures
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+
+% Acronyms
+\setglossarystyle{listdotted}
+\setglossarystyle{tree}
+\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
+
+% Glossary
+\printglossary
+
+% Start Content
+\setstretch{\stretch}
+\clearpage
+\newpage
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+% ----------------------
+
+\input{text/content.tex}
+
+% ----------------------
+
+\clearpage
+\newpage
+
+% BIBLIOGRAPHY
+\setstretch{1}
+\nocite{*}
+\section*{\bibname}
+\addcontentsline{toc}{section}{\bibname}
+\printbibliography[heading=none]
+
+% EIDENSTAT
+\input{./tex/eidesstatt}
+
+% \clearpage
+% \begin{appendices}
+% \input{./text/appendix}
+% \end{appendices}
+
+\input{./tex/colophon}
+
+\end{document}
