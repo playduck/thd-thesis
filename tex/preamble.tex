@@ -43,6 +43,7 @@
 \usepackage[inline]{enumitem}
 \usepackage{url}
 \usepackage{pdfpages}
+\usepackage{accsupp}
 \usepackage{letltxmacro}
 \usepackage{ifplatform}
 \renewcommand{\macosxname}{{\Helvetica MacOs}}
@@ -170,6 +171,7 @@
     showspaces=false,
     keepspaces,
     breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\BeginAccSupp{ActualText={}}\ensuremath{\color{gray}\hookrightarrow\space}\EndAccSupp{}},
     captionpos=b,
     title=\lstname,
     float,
