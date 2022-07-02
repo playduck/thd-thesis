@@ -3,14 +3,14 @@
 % Titlepage in accordance to:
 % https://ec.th-deg.de/Studierende/Antraege-und-Organisatorisches/AI/anmeldung_ai_bachelor.pdf
 
-\newgeometry{
-    left=1.50cm,
-    right=1.50cm,
-    top=1.11cm,
-    bottom=2cm
-}
 \begin{titlepage}
     % page setup
+    \newgeometry{
+    left=1.50cm,
+    right=1.50cm,
+    top=1.50cm,
+    bottom=2.00cm
+    }
     \thispagestyle{empty}
     \setcounter{page}{0}
     % page outline
@@ -50,6 +50,6 @@
         \end{tabularx}
     }
     \end{center}
+    \restoregeometry
 \end{titlepage}
-\restoregeometry
 \newpage

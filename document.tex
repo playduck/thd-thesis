@@ -1,9 +1,13 @@
 % Robin Prillwitz 2022
-\documentclass[11pt,a4paper]{scrartcl}
+\documentclass[
+    11pt,
+    a4paper,
+    parskip=off
+]{scrartcl}
 
-\input{./tex/preamble}
-\input{./tex/bibliography}
-\input{./tex/glossary}
+\input{./tex/preamble.tex}
+\input{./tex/bibliography.tex}
+\input{./tex/glossary.tex}
 
 %
 \def \faculty       {Angewandte Informatik}
@@ -24,13 +28,11 @@
 % Hex Foramt: 0xRRGGBB
 \definecolor{hlc}{HTML}{AA0044}
 
-\def \stretch {1}
-
 \begin{document}
-\setstretch{1.0}
+\singlespacing
 
 % Title page
-\include{./tex/titlepage}
+\include{./tex/titlepage.tex}
 
 \setcounter{page}{1}
 \pagenumbering{roman}
@@ -55,7 +57,7 @@
 \printglossary
 
 % Start Content
-\setstretch{\stretch}
+\onehalfspacing
 \clearpage
 \newpage
 \setcounter{page}{1}
@@ -69,6 +71,7 @@
 
 \clearpage
 \newpage
+\singlespacing
 
 % BIBLIOGRAPHY
 \setstretch{1}
@@ -80,14 +83,14 @@
 %  APPENDIX
 \clearpage
 \begin{appendices}
-    \input{./text/appendix}
+    \input{./text/appendix.tex}
 \end{appendices}
 \clearpage
 
 % EIDENSTAT
-\input{./tex/eidesstatt}
+\input{./tex/eidesstatt.tex}
 
 % KOLOPHON
-\input{./tex/colophon}
+\input{./tex/colophon.tex}
 
 \end{document}

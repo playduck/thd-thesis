@@ -31,18 +31,15 @@
 \setmainfont[Ligatures=TeX]{Minion Pro}
 
 % UTIL
-\usepackage{geometry}
-\usepackage[indent=0pt]{parskip}
 \usepackage{lipsum}
 \usepackage{ragged2e}
 \usepackage{seqsplit}
 \usepackage{tabto}
 \usepackage{setspace}
 \usepackage{multicol}
-\usepackage{fullpage}
 \usepackage{textcomp}
 \usepackage{hologo}
-\usepackage{microtype}
+\usepackage[nopatch=eqnum]{microtype}
 \usepackage[inline]{enumitem}
 \usepackage{url}
 \usepackage{pdfpages}
@@ -80,6 +77,10 @@
 \usepackage{scrlayer-scrpage}
 \ofoot*{\pagemark}
 \cfoot*{}
+% Make typearea (KOMA Script) default
+% however make newgeometry available
+\usepackage{typearea}
+\usepackage[pass]{geometry}
 
 
 % MATH
@@ -122,6 +123,7 @@
 \usepackage{pgfplotstable}
 \usepackage{pgfgantt}
 \pgfplotsset{
+  compat=1.18, % lastest release as of 2022-07-02
   table/search path={./data},
 }
 \usepackage{xparse}
