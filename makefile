@@ -9,6 +9,12 @@ else
 endif
 
 build:
+ifeq ($(OS),Windows_NT)
+else
+# Copy folder structure
+	mkdir -p ./${OUTPUTDIRECTORYcl}
+	for DIR in $(shell find . -maxdepth 1 -mindepth 1 -type d \( ! -name .vscode ! -name binary ! -name venv ! -name tools \) -exec basename '{}' \;) ; do mkdir -p ${OUTPUTDIRECTORY}/$$DIR ; done
+endif
 	xelatex ${EXTRA} -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
 	makeglossaries -d ${OUTPUTDIRECTORY} ${MAINFILE}
 	biber -D --output-directory ${OUTPUTDIRECTORY} ${MAINFILE}
