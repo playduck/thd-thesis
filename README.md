@@ -1,11 +1,11 @@
 # THD-Template
 
-This is a LaTeX template for use at the [Deggendorf Institute of Technology](https://th-deg.de).
+This is an *unofficial* LaTeX template for use at the [Deggendorf Institute of Technology](https://th-deg.de).
 This template was specifically designed for the course "Applied Computer Science".
 
 ## Building
 
-The project uses XeLaTex.
+The project uses XeLaTeX.
 
 - [makefile](makefile)
 - [powershell Skript](make.ps1)
