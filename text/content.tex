@@ -109,6 +109,7 @@ Eine Demonstration des modifizierten Wurzel Symbols ist in \autoref{eq:sqrt} gez
 \subsection{Quellcode}
 
 In \autoref{code:exampleCode} ist Quellcode gezeigt.
+In \autoref{code:latex} wird Quellcode aus einer Datei angezeigt.
 
 \begin{lstlisting}[
     language=C,
@@ -122,5 +123,45 @@ int main(void)  {
     return EXIT_SUCCESS;
 }
 \end{lstlisting}
+
+\lstinputlisting[
+    linerange={127-134},
+    firstnumber=127,
+    caption={\texttt{./content.tex} Beispiel zum Einbetten von Quellcode aus einer Datei},
+    language=TeX,
+    label=code:latex,
+    float=h
+]{./text/content.tex} %path is relative to main document.tex
+
+\subsection{Timing Diagramm}
+
+In \autoref{fig:timingFig} ist ein Timing Diagramm abgebildet.
+
+\begin{figure}[h]
+    \begin{center}
+    \begin{tikztimingtable}[%
+        timing/dslope=0.2,
+        timing/.style={x=1.6ex,y=2ex},
+        x=1ex,
+        timing/rowdist=4ex,
+        timing/c/rising arrows,
+        timing/name/.style={font=\sffamily\scriptsize},
+    ]
+    % Draw tikztimingtable signals
+    \busref{CS} & HHL;16{L};LHH\\
+    \busref{SCK} & UULL;16{C};UU\\
+    \busref{SO} & UUU;2D{D7};2D{D6};2D{D5};2D{D4};2D{D3};2D{D2};2D{D1};2D{D0};UUU\\
+    % Add verticals bars to background
+    \extracode
+    \begin{pgfonlayer}{background}
+        \begin{scope}[semitransparent ,semithick]
+            \vertlines[darkgray,dotted]{0,3.2 ,...,36.0}%
+        \end{scope}
+    \end{pgfonlayer}
+    \end{tikztimingtable}
+    \end{center}
+    \caption{Zeitablauf einer Datenübertragung}
+    \label{fig:timingFig}
+\end{figure}
 
 \input{text/topic/topic.tex}
