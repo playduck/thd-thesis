@@ -2,7 +2,8 @@
 \documentclass[
     11pt,
     a4paper,
-    parskip=off
+    parskip=off,
+    usegeometry,
 ]{scrartcl}
 
 \input{./tex/preamble.tex}
@@ -30,15 +31,17 @@
 
 \begin{document}
 \singlespacing
+\setcounter{page}{0}
 
 % Title page
-\include{./tex/titlepage.tex}
+\input{./tex/titlepage.tex}
 
-\setcounter{page}{1}
 \pagenumbering{roman}
 
 % Table of Contents
 \tableofcontents
+
+\newpage
 
 % Table of Tables
 \addcontentsline{toc}{section}{Tabellenverzeichnis}

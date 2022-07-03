@@ -10,13 +10,18 @@
 \hyphenation{Mathe-matik wieder-gewinnen}
 \usepackage[babel=true]{csquotes}
 
+% APPENDIX
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixpagename}{\section*{Anhang}}
+\renewcommand{\appendixtocname}{Anhang}
+
 % COLOR
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 \definecolor{hlc}{HTML}{000000}
 \newcommand\hlc{\color{hlc}}
 
 % FONT COLOR
-\addtokomafont{disposition}{\hlc\rmfamily}
+\addtokomafont{disposition}{\hlc\sffamily}
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
 
 % FONT
@@ -37,7 +42,6 @@
 \usepackage{tabto}
 \usepackage{setspace}
 \usepackage{multicol}
-\usepackage{textcomp}
 \usepackage{hologo}
 \usepackage[nopatch=eqnum]{microtype}
 \usepackage[inline]{enumitem}
@@ -47,13 +51,14 @@
 \usepackage{letltxmacro}
 \usepackage{ifplatform}
 \renewcommand{\macosxname}{{\Helvetica MacOs}}
+\usepackage[defaultlines=4, all]{nowidow}
 
 % FIGURE
 \usepackage{float}
 \usepackage[margin=15pt,font=footnotesize,labelfont={color=hlc,bf,sf}]{caption}
 \usepackage{subcaption}
 \usepackage{wrapfig}
-\usepackage{bigfoot}
+% \usepackage{bigfoot}
 \interfootnotelinepenalty=10000
 
 % GRAPHIC
@@ -75,19 +80,20 @@
 
 % HEADER & FOOTER
 \usepackage{scrlayer}
-\usepackage{scrlayer-scrpage}
+\usepackage[]{scrlayer-scrpage}
 \ofoot*{\pagemark}
 \cfoot*{}
 % Make typearea (KOMA Script) default
 % however make newgeometry available
-\usepackage{typearea}
-\usepackage[pass]{geometry}
+% \usepackage{typearea}
+\usepackage[]{geometry}
+% \usepackage{showframe} % debug
 
 
 % MATH
 \usepackage{amsmath}
 \usepackage{amssymb}
-\usepackage{siunitx}
+\usepackage[locale=DE]{siunitx}
 
 % square root hack
 % adds a trailing vertical edge to square roots
@@ -133,11 +139,6 @@
 \IfValueTF{#2}{[#2]}{}%
 \IfBooleanTF{#1}{\#}{}%
 }}
-
-% APPENDIX
-\usepackage[toc,page]{appendix}
-\renewcommand{\appendixpagename}{Anhang}
-\renewcommand{\appendixtocname}{Anhang}
 
 % CODE
 \usepackage{dirtree}
