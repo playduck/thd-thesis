@@ -10,90 +10,30 @@
 \input{./tex/bibliography.tex}
 \input{./tex/glossary.tex}
 
-%
-\def \faculty       {Angewandte Informatik}
-\def \degreeType    {Bachelor}
-\def \degreeDisc    {Engineering}
-\def \degreeCourse  {Angewandte Informatik}
-\def \titleGer      {Titel der Arbeit}
-\def \titleEng      {Title of the Work}
-%
-\def \auditor       {Professor Bösnecker}
-%
-\def \authorFirst   {Robin}
-\def \authorLast    {Prillwitz}
-\def \matrnr        {00805291}
-\def \date          {\today}
-
-% Highlight color
-% Hex Foramt: 0xRRGGBB
-\definecolor{hlc}{HTML}{AA0044}
+\input{./tex/meta.tex}
 
 \begin{document}
-\singlespacing
 \setcounter{page}{0}
 
 % Title page
 \input{./tex/titlepage.tex}
 
-\pagenumbering{roman}
+% Frontmatter
+\input{./tex/frontmatter.tex}
 
-% Table of Contents
-\tableofcontents
-
-\newpage
-
-% Table of Tables
-\addcontentsline{toc}{section}{Tabellenverzeichnis}
-\listoftables
-
-% Table of Figures
-\addcontentsline{toc}{section}{Abbildungsverzeichnis}
-\listoffigures
-
-% Acronyms
-\setglossarystyle{listdotted}
-\setglossarystyle{tree}
-\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
-
-% Glossary
-\printglossary
-
-% Start Content
-\onehalfspacing
+% Mainmatter
 \clearpage
 \newpage
+\onehalfspacing
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
-% ----------------------
+\input{./text/content.tex}
 
-\input{text/content.tex}
-
-% ----------------------
-
+% Backmatter
 \clearpage
 \newpage
-\singlespacing
 
-% BIBLIOGRAPHY
-\setstretch{1}
-\nocite{*}
-\section*{\bibname}
-\addcontentsline{toc}{section}{\bibname}
-\printbibliography[heading=none]
-
-%  APPENDIX
-\clearpage
-\begin{appendices}
-    \input{./text/appendix.tex}
-\end{appendices}
-\clearpage
-
-% EIDENSTAT
-\input{./tex/eidesstatt.tex}
-
-% KOLOPHON
-\input{./tex/colophon.tex}
+\input{./tex/backmatter.tex}
 
 \end{document}
