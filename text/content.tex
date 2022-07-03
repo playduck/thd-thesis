@@ -2,6 +2,14 @@
 
 % REPLACE FILES IN THIS DIRECTORY WITH YOUR OWN CONTENT
 
+Für weitere Informationen zur \enquote{korrekten} Nutzung von \LaTeX\ werden folgende Ressourcen vorgeschlagen:
+
+\begin{itemize}
+    \item \url{https://github.com/schtandard/latex_primer}
+    \item \url{https://tex.stackexchange.com}
+\end{itemize}
+
+
 \subsection{Akronyme}
 
 Das ist ein \gls{acr}.
@@ -11,7 +19,7 @@ Diese kann man in dem \gls{glossary} finden.
 
 In \autoref{fig:exampleImage} wird ein Beispielbild gezeigt.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=0.8\textwidth]{test.jpg}
     \caption[Beispielbild]{Beispielbild von \citeauthor{exampleImage} aus \autocite{exampleImage}.}
@@ -20,7 +28,7 @@ In \autoref{fig:exampleImage} wird ein Beispielbild gezeigt.
 
 In \autoref{fig:exampleFigure} wird eine Beispielgraph dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \begin{subfigure}{0.45\textwidth}
         \begin{tikzpicture}
@@ -48,7 +56,7 @@ In \autoref{fig:exampleFigure} wird eine Beispielgraph dargestellt.
 
 Es folgt nun eine Tabelle in \autoref{tab:exampleTable}.
 
-\begin{table}[h]
+\begin{table}[ht]
     \centering
     \begin{tabular}{|l|l|}
         \hline
@@ -72,7 +80,7 @@ Es folgt nun eine Tabelle in \autoref{tab:exampleTable}.
 
 In \autoref{fig:tikz} wird eine CircuitTi\textit{k}Z Zeichnung dargestellt.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
 
     \begin{circuitikz}[]
@@ -137,7 +145,7 @@ int main(void)  {
 
 In \autoref{fig:timingFig} ist ein Timing Diagramm abgebildet.
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \begin{center}
     \begin{tikztimingtable}[%
         timing/dslope=0.2,
@@ -163,7 +171,5 @@ In \autoref{fig:timingFig} ist ein Timing Diagramm abgebildet.
     \caption{Zeitablauf einer Datenübertragung}
     \label{fig:timingFig}
 \end{figure}
-
-\newpage
 
 \input{text/topic/topic.tex}
