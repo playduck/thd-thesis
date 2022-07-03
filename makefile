@@ -9,7 +9,12 @@ else
 	OPEN = open
 endif
 
-build:
+.PHONY: once
+once:
+	${LC} ${EXTRA} --shell-escape -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
+
+.PHONY: all
+all:
 ifeq ($(OS),Windows_NT)
 else
 # Copy folder structure
@@ -23,9 +28,11 @@ endif
 	${LC} ${EXTRA} -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
 	${LC} ${EXTRA} --shell-escape -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
 
+.PHONY: open
 open:
 	${OPEN} ${OUTPUTDIRECTORY}/${MAINFILE}.pdf &
 
+.PHONY: clean
 clean:
 	rm -rf ./${OUTPUTDIRECTORY}
 	# rm -f .out.aux .dvi.log -blx.bib.blg .bbl.acn .acr.alg .glg.glo .gls.ist .lof.lot .bcf.run.xml .tex-e.toc ._gstmp.acn .acr.alg .aux.bbl .bcf.blg
