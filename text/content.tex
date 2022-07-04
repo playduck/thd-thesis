@@ -114,6 +114,7 @@ Eine Demonstration des modifizierten Wurzel Symbols ist in \autoref{eq:sqrt} gez
     \label{eq:sqrt}
 \end{equation}
 
+
 \subsection{Quellcode}
 
 In \autoref{code:exampleCode} ist Quellcode gezeigt.
@@ -121,7 +122,8 @@ In \autoref{code:latex} wird Quellcode aus einer Datei angezeigt.
 
 \begin{lstlisting}[
     language=C,
-    caption={Ein einfacher C code}, language=C++, label=code:exampleCode, float=h
+    caption={Ein einfacher C code}, language=C++, label=code:exampleCode, float=h,
+    literate={{*}{\texttt{*}}1}
 ]
 #include <stdlib.h>
 #include <stdio.h>
@@ -130,10 +132,14 @@ int main(void)  {
     printf("Hello World!\n");
     return EXIT_SUCCESS;
 }
+
+double example (double(*f)(double)) {
+    return (*f)(wert);
+}
 \end{lstlisting}
 
 \lstinputlisting[
-    linerange={127-134},
+    linerange={140-147},
     firstnumber=127,
     caption={\texttt{./content.tex} Beispiel zum Einbetten von Quellcode aus einer Datei},
     language=TeX,
@@ -171,5 +177,50 @@ In \autoref{fig:timingFig} ist ein Timing Diagramm abgebildet.
     \caption{Zeitablauf einer Datenübertragung}
     \label{fig:timingFig}
 \end{figure}
+
+\subsection{Wrapfig}
+
+\begin{wrapfigure}{r}{6cm}
+\centering
+\vspace{-0.5cm}
+\begin{tikzpicture}[node distance=1.3cm,>=stealth',bend angle=45,auto]
+
+    \tikzstyle{place}=[circle,thick,draw=blue!75,fill=blue!20,minimum size=6mm]
+    \tikzstyle{red place}=[place,draw=red!75,fill=red!20]
+    \tikzstyle{transition}=[rectangle,thick,draw=black!75,
+                fill=black!20,minimum size=4mm]
+
+    \tikzstyle{every label}=[red]
+
+    \node [place,tokens=1] (w1)                           {};
+    \node [place] (c1) [below of=w1]                      {};
+    \node [place] (s)  [below of=c1,label=above:$s\le 3$] {};
+    \node [place] (c2) [below of=s]                       {};
+    \node [place,tokens=1] (w2) [below of=c2]             {};
+
+    \node [transition] (e1) [left of=c1] {}
+    edge [pre,bend left]                  (w1)
+    edge [post,bend right]                (s)
+    edge [post]                           (c1);
+
+    \node [transition] (e2) [left of=c2] {}
+    edge [pre,bend right]                 (w2)
+    edge [post,bend left]                 (s)
+    edge [post]                           (c2);
+
+    \node [transition] (l1) [right of=c1] {}
+    edge [pre]                            (c1)
+    edge [pre,bend left]                  (s)
+    edge [post,bend right] node[swap] {2} (w1);
+
+    \node [transition] (l2) [right of=c2] {}
+    edge [pre]                            (c2)
+    edge [pre,bend right]                 (s)
+    edge [post,bend left]  node {2}       (w2);
+\end{tikzpicture}
+\caption{Wrapfigure eines Petrinetzes}
+\end{wrapfigure}
+
+\lipsum
 
 \input{text/topic/topic.tex}
