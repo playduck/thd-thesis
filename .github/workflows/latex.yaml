@@ -15,8 +15,7 @@ jobs:
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
           extra_fonts: |
-            ./fonts/*.ttf
-            ./fonts/*.otf
+            ./fonts/*
           root_file: |
             document.tex
 
