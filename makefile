@@ -9,6 +9,12 @@ else
 	OPEN = open
 endif
 
+.PHONEY: mk
+mk:
+	latexmk -${LC} --shell-escape\
+		-auxdir=${OUTPUTDIRECTORY} -outdir=${OUTPUTDIRECTORY}\
+		${MAINFILE}.tex
+
 .PHONY: once
 once:
 	${LC} ${EXTRA} --shell-escape -output-directory=${OUTPUTDIRECTORY} ${MAINFILE}.tex
