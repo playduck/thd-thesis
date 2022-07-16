@@ -11,7 +11,7 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           args: "-g -xelatex -file-line-error -halt-on-error -interaction=nonstopmode -shell-escape -auxdir=./dist outdir=./dist"
-          working_directory: /
+          working_directory: ./
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
           extra_fonts: |
