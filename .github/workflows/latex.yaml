@@ -15,7 +15,10 @@ jobs:
           latexmk_use_xelatex: true
           latexmk_shell_escape: true
           extra_fonts: |
-            ./fonts/*
+            ./fonts/HelveticaNeue-01.ttf
+            ./fonts/Minion Pro Regular.ttf
+            ./fonts/Minion Pro Display.otf
+            ./fonts/FiraCode-Regular.ttf
           root_file: |
             document.tex
 
