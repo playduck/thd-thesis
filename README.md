@@ -8,7 +8,6 @@ This template was specifically designed for the course "Applied Computer Science
 The project uses XeLaTeX.
 
 - [makefile](makefile)
-- [powershell Skript](make.ps1)
 
 The resulting document is compiled to the `./dist` folder.
 
