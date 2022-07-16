@@ -1,4 +1,5 @@
 % Robin Prillwitz 2022
+
 \documentclass[
     11pt,
     a4paper,
@@ -6,34 +7,15 @@
     usegeometry,
 ]{scrartcl}
 
-\input{./tex/preamble.tex}
-\input{./tex/bibliography.tex}
-\input{./tex/glossary.tex}
-
-\input{./tex/meta.tex}
+\input{./src/preamble/preamble.tex}
 
 \begin{document}
-\setcounter{page}{0}
+    \input{./src/frontmatter/frontmatter.tex}
 
-% Title page
-\input{./tex/titlepage.tex}
+    \clearpage
+    \input{./src/mainmatter/mainmatter.tex}
 
-% Frontmatter
-\input{./tex/frontmatter.tex}
-
-% Mainmatter
-\clearpage
-\newpage
-\onehalfspacing
-\setcounter{page}{1}
-\pagenumbering{arabic}
-
-\input{./text/content.tex}
-
-% Backmatter
-\clearpage
-\newpage
-
-\input{./tex/backmatter.tex}
+    \clearpage
+    \input{./src/backmatter/backmatter.tex}
 
 \end{document}

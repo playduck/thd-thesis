@@ -1,0 +1,191 @@
+% Robin Prillwitz 2022
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% LOCAL
+\usepackage[ngerman]{babel}
+\usepackage[iso,german]{isodate}
+\usepackage{hyphenat}
+\hyphenation{Mathe-matik wieder-gewinnen}
+\usepackage[babel=true]{csquotes}
+
+% APPENDIX
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixpagename}{\section*{Anhang}}
+\renewcommand{\appendixtocname}{Anhang}
+
+% COLOR
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+\definecolor{hlc}{HTML}{000000}
+\newcommand\hlc{\color{hlc}}
+
+% FONT COLOR
+\addtokomafont{disposition}{\hlc\sffamily}
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+
+% FONT
+\usepackage{fontspec}
+\usepackage{textcomp}
+\newfontfamily\Verdana{Verdana}[Scale=MatchLowercase, Ligatures=TeX]
+\newfontfamily\Helvetica{Helvetica Neue}[Scale=MatchLowercase, Ligatures=TeX]
+\newfontfamily\FiraCode{Fira Code}[Scale=MatchLowercase, Ligatures=TeX]
+\newfontfamily\MinionPro{Minion Pro}[Scale=MatchLowercase, Ligatures=TeX]
+\setsansfont[Ligatures=TeX]{Helvetica Neue}
+\setmonofont[Scale=MatchLowercase, Ligatures=TeX, Contextuals={Alternate}]{Fira Code}
+\setmainfont[Ligatures=TeX]{Minion Pro}
+
+% UTIL
+\usepackage{lipsum}
+\usepackage{ragged2e}
+\usepackage{seqsplit}
+\usepackage{tabto}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{hologo}
+\usepackage[nopatch=eqnum]{microtype}
+\usepackage[inline]{enumitem}
+\usepackage{url}
+\usepackage{pdfpages}
+\usepackage{accsupp}
+\usepackage{letltxmacro}
+\usepackage{ifplatform}
+\renewcommand{\macosxname}{{\Helvetica MacOs}}
+\usepackage[defaultlines=3, all]{nowidow}
+\brokenpenalty10000\relax
+
+% FIGURE
+\usepackage{float}
+\usepackage[margin=15pt,font=footnotesize,labelfont={color=hlc,bf,sf}]{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+% \usepackage{bigfoot}
+\interfootnotelinepenalty=10000
+
+% GRAPHIC
+\usepackage{graphicx}
+\usepackage{grffile}
+\graphicspath{{img/}}
+
+% TABLE
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\captionsetup[table]{labelformat=simple, labelsep=colon}
+\captionsetup[subtable]{labelformat=simple, labelsep=colon}
+
+% TOC
+\addto\captionsngerman{\renewcommand*\contentsname{Inhaltsverzeichnis}}
+\addto\captionsngerman{\renewcommand*\listfigurename{Abbildungsverzeichnis}}
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% HEADER & FOOTER
+\usepackage{scrlayer}
+\usepackage[]{scrlayer-scrpage}
+\ofoot*{\pagemark}
+\cfoot*{}
+% Make typearea (KOMA Script) default
+% however make newgeometry available
+% \usepackage{typearea}
+\usepackage[]{geometry}
+% \usepackage{showframe} % debug
+
+
+% MATH
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[locale=DE]{siunitx}
+
+% square root hack
+% adds a trailing vertical edge to square roots
+\makeatletter
+  \let\oldr@@t\r@@t
+  \def\r@@t#1#2{%
+  \setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
+  \advance\dimen0-0.2\ht0
+  \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+  {\box0\lower0.4pt\box2}}
+  \LetLtxMacro{\oldsqrt}{\sqrt}
+  \renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2} }
+\makeatother
+
+% FLOAT COUNTER
+\floatstyle{ruled}
+\newfloat{program}{thp}{lop}
+\floatname{program}{Program}
+\floatname{figure}{Abbildung}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\thefigure}{\arabic{figure}}
+
+% TIKZ & PGF
+\usepackage{tikz}
+\usetikzlibrary{patterns}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows,snakes,automata,backgrounds,petri}
+\usepackage{tikz-timing}
+\usetikztiminglibrary[rising arrows]{clockarrows}
+\usepackage{tikzpagenodes}
+\usepackage[european, betterproportions]{circuitikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{pgfgantt}
+\pgfplotsset{
+  compat=1.18, % lastest release as of 2022-07-02
+  table/search path={./data},
+}
+\usepackage{xparse}
+\NewDocumentCommand{\busref}{som}{\texttt{%
+#3%
+\IfValueTF{#2}{[#2]}{}%
+\IfBooleanTF{#1}{\#}{}%
+}}
+
+% CODE
+\usepackage{dirtree}
+\usepackage{listings}
+\renewcommand\lstlistingname{Sourcecode} % Change language of section name
+\lstset{ % General setup for the package
+    language=C++,
+    rangeprefix=//\ ---\ ,rangesuffix=\ ---,
+    includerangemarker=false,
+    numberstyle=\FiraCode\color{black},
+    basicstyle=\FiraCode\color{black},
+    backgroundcolor=\color{White},
+    keywordstyle=\color{Orchid}\bfseries,
+    rulesepcolor=\color{DarkGray},
+    rulecolor=\color{Black},
+    stringstyle=\color{Emerald}\rmfamily,
+    commentstyle=\color{LightSlateGrey},
+    directivestyle={\color{RoyalPurple}},
+    %
+    emph={},
+    emphstyle={\color{BlueViolet}},
+    %
+    otherkeywords = {;,<<,>>,++,|},
+    keywordstyle=\color{WildStrawberry},
+    numbers=left,
+    frame=shadowbox,
+    tabsize=4,
+    columns=fixed,
+    showstringspaces=true,
+    showtabs=false,
+    showspaces=false,
+    keepspaces,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\BeginAccSupp{ActualText={}}\ensuremath{\color{gray}\hookrightarrow\space}\EndAccSupp{}},
+    captionpos=b,
+    title=\lstname,
+    float,
+    belowskip=-0.2cm
+}
+
+% INCLUDES
+\input{./src/preamble/meta.tex}
+\input{./src/preamble/bibliography.tex}
+\input{./src/preamble/glossary.tex}
+
+% LINKS
+\usepackage[hidelinks]{hyperref}
+\urlstyle{tt}

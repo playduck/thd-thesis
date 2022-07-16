@@ -1,0 +1,23 @@
+% Robin Prillwitz 2022
+
+\singlespacing
+
+% BIBLIOGRAPHY
+\setstretch{1}
+\nocite{*}
+\section*{\bibname}
+\addcontentsline{toc}{section}{\bibname}
+\printbibliography[heading=none]
+
+%  APPENDIX
+\clearpage
+\begin{appendices}
+    \input{./src/backmatter/appendix/appendix.tex}
+\end{appendices}
+\clearpage
+
+% EIDENSTAT
+\input{./src/backmatter/eidesstatt.tex}
+
+% KOLOPHON
+\input{./src/backmatter/colophon.tex}

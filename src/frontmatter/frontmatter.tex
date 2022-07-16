@@ -1,0 +1,28 @@
+% Robin Prillwitz 2022
+
+\singlespacing
+\pagenumbering{roman}
+\setcounter{page}{0}
+
+\input{./src/frontmatter/titlepage.tex}
+
+% Table of Contents
+\tableofcontents
+
+\newpage
+
+% Table of Tables
+\addcontentsline{toc}{section}{Tabellenverzeichnis}
+\listoftables
+
+% Table of Figures
+\addcontentsline{toc}{section}{Abbildungsverzeichnis}
+\listoffigures
+
+% Acronyms
+\setglossarystyle{listdotted}
+\setglossarystyle{tree}
+\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
+
+% Glossary
+\printglossary
