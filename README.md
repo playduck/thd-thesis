@@ -2,12 +2,24 @@
 
 This is an *unofficial* LaTeX template for use at the [Deggendorf Institute of Technology](https://th-deg.de).
 This template was specifically designed for the course "Applied Computer Science".
+It's opinionated regarding filestructure and packages but tries to provide reasonable defaults.
+
+**This template is provided without warranty or support.**
 
 ## Building
 
-The project uses XeLaTeX.
+The project uses XeLaTeX and [makefile](makefile).
+There are multiple targets:
 
-- [makefile](makefile)
+| Target        | Action                                                    | Use Case                                              |
+|---------------|-----------------------------------------------------------|-------------------------------------------------------|
+| make          | Build using `latexmk`                                     | Small changes (Recommended)                           |
+| make once     | One run of `XeLaTeX`                                      | When `latexmk` fails                                  |
+| make all      | Multiple runs of `XeLaTeX`, `biber` and `makeglossaires`  | When adding new Acronyms, Literature, bigger changes  |
+| make open     | Opens compiled pdf                                        |                                                       |
+| make clean    | Removes entire build directory                            |                                                       |
+
+---
 
 The resulting document is compiled to the `./dist` folder.
 
