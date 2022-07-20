@@ -36,10 +36,11 @@
 \definecolor{THDBlau}       {HTML}{1a4273}% Website custom.css:root
 
 % Global document highlight color
-\newcommand\hlc{\color{THDBlau}}
+\colorlet{HighlightColor}{THDBlau}
+\newcommand\HighlightColor{\color{HighlightColor}}
 
 % FONT COLOR
-\addtokomafont{disposition}{\hlc\sffamily}
+\addtokomafont{disposition}{\HighlightColor\sffamily}
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
 
 % FONT
@@ -78,7 +79,7 @@
 
 % FIGURE
 \usepackage{float}
-\usepackage[margin=15pt,font=footnotesize,labelfont={color=hlc,bf,sf}]{caption}
+\usepackage[margin=15pt,font=footnotesize,labelfont={color=HighlightColor,bf,sf}]{caption}
 \usepackage{subcaption}
 \usepackage{wrapfig}
 % \usepackage{bigfoot}
