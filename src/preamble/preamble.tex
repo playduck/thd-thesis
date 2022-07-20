@@ -17,8 +17,26 @@
 
 % COLOR
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-\definecolor{hlc}{HTML}{000000}
-\newcommand\hlc{\color{hlc}}
+
+% Colors of THD faculties
+\definecolor{THDGreen}      {HTML}{13a538}% BIW
+\definecolor{THDDarkRed}    {HTML}{b2110e}% AWW
+\definecolor{THDYellow}     {HTML}{ffd500}% EMT
+\definecolor{THDStrongBlue} {HTML}{0085c8}% MB-MK
+\definecolor{THDPurple}     {HTML}{59358c}% NUW
+\definecolor{THDOrange}     {HTML}{f18700}% AGW
+\definecolor{THDBrightRed}  {HTML}{e73d55}% AI
+\definecolor{THDCyan}       {HTML}{17a2b0}% ECRI
+
+% Additional Colors
+\definecolor{THDWhite}      {HTML}{ffffff}
+\definecolor{THDBlack}      {HTML}{000000}
+\definecolor{THDGrey}       {HTML}{313131}
+\definecolor{THDDonauBlau}  {HTML}{009fe3}% Website custom.css:root
+\definecolor{THDBlau}       {HTML}{1a4273}% Website custom.css:root
+
+% Global document highlight color
+\newcommand\hlc{\color{THDBlau}}
 
 % FONT COLOR
 \addtokomafont{disposition}{\hlc\sffamily}
@@ -35,6 +53,7 @@
 \setmonofont[Scale=MatchLowercase, Ligatures=TeX, Contextuals={Alternate}]{Fira Code}
 \setmainfont[Ligatures=TeX]{Minion Pro}
 
+\newcommand{\threeast}{\bigskip\bigskip\par\centerline{*\quad*\quad*}\bigskip\par}%
 
 % UTIL
 \usepackage{lipsum}
@@ -46,6 +65,8 @@
 \usepackage{hologo}
 \usepackage[nopatch=eqnum]{microtype}
 \usepackage[inline]{enumitem}
+\setlist{itemsep=0em, parsep=0em} % remove inter-item spacing
+
 \usepackage{url}
 \usepackage{pdfpages}
 \usepackage{accsupp}
