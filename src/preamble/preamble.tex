@@ -35,6 +35,7 @@
 \setmonofont[Scale=MatchLowercase, Ligatures=TeX, Contextuals={Alternate}]{Fira Code}
 \setmainfont[Ligatures=TeX]{Minion Pro}
 
+
 % UTIL
 \usepackage{lipsum}
 \usepackage{ragged2e}
@@ -156,7 +157,7 @@
     keywordstyle=\color{Orchid}\bfseries,
     rulesepcolor=\color{DarkGray},
     rulecolor=\color{Black},
-    stringstyle=\color{Emerald}\rmfamily,
+    stringstyle=\color{Emerald},
     commentstyle=\color{LightSlateGrey},
     directivestyle={\color{RoyalPurple}},
     %
@@ -165,6 +166,7 @@
     %
     otherkeywords = {;,<<,>>,++,|},
     keywordstyle=\color{WildStrawberry},
+    literate={{*}{\texttt{*}}1},% replace fira-code asterist ligature
     numbers=left,
     frame=shadowbox,
     tabsize=4,
