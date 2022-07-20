@@ -1,5 +1,12 @@
 % Robin Prillwitz 2022
 
+\KOMAoptions{
+  fontsize=11pt,
+  paper=a4,
+  parskip=half,
+  usegeometry=true
+}
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
@@ -50,9 +57,17 @@
 \newfontfamily\Helvetica{Helvetica Neue}[Scale=MatchLowercase, Ligatures=TeX]
 \newfontfamily\FiraCode{Fira Code}[Scale=MatchLowercase, Ligatures=TeX]
 \newfontfamily\MinionPro{Minion Pro}[Scale=MatchLowercase, Ligatures=TeX]
-\setsansfont[Ligatures=TeX]{Helvetica Neue}
-\setmonofont[Scale=MatchLowercase, Ligatures=TeX, Contextuals={Alternate}]{Fira Code}
-\setmainfont[Ligatures=TeX]{Minion Pro}
+\setsansfont[
+  Ligatures=TeX]{Helvetica Neue}
+\setmonofont[
+  Scale       = MatchLowercase,
+  Ligatures   = TeX,
+  Contextuals = {Alternate}]{Fira Code}
+\setmainfont[
+  Scale       = MatchLowercase,
+  ScaleAgain  = 1.1,
+  LetterSpace = 1,
+  Ligatures   = TeX]{Minion Pro}
 
 \newcommand{\threeast}{\bigskip\bigskip\par\centerline{*\quad*\quad*}\bigskip\par}%
 
