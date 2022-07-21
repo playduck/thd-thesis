@@ -9,12 +9,18 @@
   usegeometry = true
 }
 
-
-
 \usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 
-% LOCAL
+% PAGE SETUP
+% uncomment to add bleed
+% a4 + 4mm bleed (2mm on each edge)
+% \usepackage[cross,axes,center,width=214truemm,height=301truemm]{crop}
+
+% must import geometry after crop
+\usepackage[]{geometry}
+
+
+% LOCALIZATION
 \usepackage[ngerman]{babel}
 \usepackage[iso,german]{isodate}
 \usepackage{hyphenat}
@@ -65,6 +71,7 @@
 }
 
 % FONT
+\usepackage[T1]{fontenc}
 \usepackage{fontspec}
 \usepackage{textcomp}
 \newfontfamily\Verdana{Verdana}[Scale=MatchLowercase, Ligatures=TeX]
@@ -79,33 +86,32 @@
   Contextuals = {Alternate}]{Fira Code}
 \setmainfont[
   Scale       = MatchLowercase,
-  ScaleAgain  = 1.08,
-  LetterSpace = 2.5,
+  ScaleAgain  = 1.09,
+  LetterSpace = 1.25,
   Ligatures   = TeX]{Minion Pro}
 
+% Three star symbol at the end of the colophon
 \newcommand{\threeast}{\bigskip\bigskip\par\centerline{*\quad*\quad*}\bigskip\par}%
 
-% UTIL
-\usepackage{lipsum}
-\usepackage{ragged2e}
-\usepackage{seqsplit}
-\usepackage{tabto}
-\usepackage{setspace}
-\usepackage{multicol}
-\usepackage{hologo}
-\usepackage[nopatch=eqnum]{microtype}
-\usepackage[inline]{enumitem}
+% UTILITY PACKAGES
+\usepackage{lipsum}% lorem ipsum blind text
+\usepackage{tabto}% tab charachters
+\usepackage{setspace}% line spacing
+\usepackage{hologo}% Logos of LaTeX and friends
+\usepackage[nopatch=eqnum]{microtype}% micro typography adjustments
+
+\usepackage[inline]{enumitem}% lists and enumerations
 \setlist{itemsep=0em, parsep=0em} % remove inter-item spacing
 
-\usepackage{url}
-\usepackage{pdfpages}
-\usepackage{accsupp}
-\usepackage{letltxmacro}
-\usepackage{ifplatform}
+\usepackage{url}% URLs
+\usepackage{pdfpages}% insert external pdfs
+\usepackage{letltxmacro}% robust macros for sqrt
+\usepackage{ifplatform}% check current platform
 \renewcommand{\macosxname}{{\Helvetica MacOs}}
-\usepackage[defaultlines=3, all]{nowidow}
+\usepackage[defaultlines=3, all]{nowidow}% prohibits widows over pagebreaks
 \brokenpenalty10000\relax
 
+% typeset an intentionally empty page
 \newcommand{\emptypage}{{
   \clearpage
   \singlespacing
@@ -121,10 +127,9 @@
 \usepackage[margin=15pt,font=footnotesize,labelfont={color=HighlightColor,bf,sf}]{caption}
 \usepackage{subcaption}
 \usepackage{wrapfig}
-% \usepackage{bigfoot}
 \interfootnotelinepenalty=10000
 
-% GRAPHIC
+% GRAPHICS
 \usepackage{graphicx}
 \usepackage{grffile}
 \graphicspath{{img/}}
@@ -148,23 +153,14 @@
 \usepackage[]{scrlayer-scrpage}
 \ofoot*{\pagemark}
 \cfoot*{}
+
+% increase distance between footnote and textarea
 \setlength{\skip\footins}{10mm plus 2mm}
 
 % scale marginnotes to footnote size
 \let\oldmarginpar\marginpar
 \renewcommand\marginpar[2][]{%
 \oldmarginpar[\footnotesize #1]{\footnotesize #2}}
-
-% Make typearea (KOMA Script) default
-% however make newgeometry available
-% \usepackage{typearea}
-% \usepackage[]{showframe} % debug
-
-% uncomment for bleed
-% 4mm bleed (2mm on each edge)
-% \usepackage[width=214truemm,height=301truemm,center]{crop}
-
-\usepackage[]{geometry}
 
 % MATH
 \usepackage{amsmath}
@@ -194,15 +190,23 @@
 
 % TIKZ & PGF
 \usepackage{tikz}
+\usepackage{tikzpagenodes}
 \usetikzlibrary{patterns}
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes}
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{arrows,snakes,automata,backgrounds,petri}
+
 \usepackage{tikz-timing}
 \usetikztiminglibrary[rising arrows]{clockarrows}
-\usepackage{tikzpagenodes}
+\NewDocumentCommand{\busref}{som}{\texttt{%
+#3%
+\IfValueTF{#2}{[#2]}{}%
+\IfBooleanTF{#1}{\#}{}%
+}}
+
 \usepackage[european, betterproportions]{circuitikz}
+
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 \usepackage{pgfgantt}
@@ -210,15 +214,9 @@
   compat=1.18, % lastest release as of 2022-07-02
   table/search path={./data},
 }
-\usepackage{xparse}
-\NewDocumentCommand{\busref}{som}{\texttt{%
-#3%
-\IfValueTF{#2}{[#2]}{}%
-\IfBooleanTF{#1}{\#}{}%
-}}
 
 % CODE
-\usepackage{dirtree}
+\usepackage{accsupp}% accessibility, required for lstlistings
 \usepackage{listings}
 \renewcommand\lstlistingname{Sourcecode} % Change language of section name
 \lstset{ % General setup for the package
@@ -266,6 +264,7 @@
 \usepackage[hidelinks]{hyperref}
 \urlstyle{tt}
 
+% binding correction
 \KOMAoptions{
   BCOR=15mm,
   DIV=default
