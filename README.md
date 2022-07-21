@@ -1,7 +1,8 @@
-# THD-Template
+# thd-thesis
 
 This is an *unofficial* LaTeX template for use at the [Deggendorf Institute of Technology](https://th-deg.de).
-This template was specifically designed for the course "Applied Computer Science".
+This template was specifically designed to meet requirements of the "Applied Computer Science" faculty.
+[Link to german requirements](https://th-deg.de/Studierende/Antraege-und-Organisatorisches/AI/Abschlussarbeiten_final_IAS_AI_LSI.pdf).
 It's opinionated regarding filestructure and packages but tries to provide reasonable defaults.
 
 **This template is provided without warranty or support.**
