@@ -5,8 +5,11 @@
   paper       = a4,
   twoside     = true,
   parskip     = half,
+  pagesize    = false,
   usegeometry = true
 }
+
+
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -145,12 +148,23 @@
 \usepackage[]{scrlayer-scrpage}
 \ofoot*{\pagemark}
 \cfoot*{}
+\setlength{\skip\footins}{10mm plus 2mm}
+
+% scale marginnotes to footnote size
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[2][]{%
+\oldmarginpar[\footnotesize #1]{\footnotesize #2}}
+
 % Make typearea (KOMA Script) default
 % however make newgeometry available
 % \usepackage{typearea}
-\usepackage[]{geometry}
-% \usepackage{showframe} % debug
+% \usepackage[]{showframe} % debug
 
+% uncomment for bleed
+% 4mm bleed (2mm on each edge)
+% \usepackage[width=214truemm,height=301truemm,center]{crop}
+
+\usepackage[]{geometry}
 
 % MATH
 \usepackage{amsmath}
@@ -253,6 +267,6 @@
 \urlstyle{tt}
 
 \KOMAoptions{
-  BCOR=10mm,
+  BCOR=15mm,
   DIV=default
 }
