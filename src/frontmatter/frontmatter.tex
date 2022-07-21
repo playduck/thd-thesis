@@ -7,6 +7,10 @@
 \input{./src/frontmatter/titlepage.tex}
 \newpage
 
+\thispagestyle{empty}
+\setcounter{page}{0}
+\emptypage
+
 \input{./src/frontmatter/abstract.tex}
 \newpage
 
@@ -16,22 +20,20 @@
 \input{./src/frontmatter/restriction-notice.tex}
 \newpage
 
-\clearpage
-\begin{center}
-\scriptsize Diese Seite wurde absichtlich leer gelassen.
-\end{center}
-\newpage
-
 % Table of Contents
+\setlength{\cftbeforesecskip}{4pt}
+\addcontentsline{toc}{section}{Inhaltsverzeichnis}
+\phantomsection
 \tableofcontents
-
 \newpage
 
 % Table of Tables
+\phantomsection
 \addcontentsline{toc}{section}{Tabellenverzeichnis}
 \listoftables
 
 % Table of Figures
+\phantomsection
 \addcontentsline{toc}{section}{Abbildungsverzeichnis}
 \listoffigures
 
@@ -42,3 +44,5 @@
 
 % Glossary
 \printglossary
+
+% \emptypage

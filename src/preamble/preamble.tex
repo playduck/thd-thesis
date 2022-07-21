@@ -3,6 +3,7 @@
 \KOMAoptions{
   fontsize    = 11pt,
   paper       = a4,
+  twoside     = true,
   parskip     = half,
   usegeometry = true
 }
@@ -49,6 +50,16 @@
 % FONT COLOR
 \addtokomafont{disposition}{\HighlightColor\sffamily}
 \newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+\newcommand{\centersection}[1]{
+  {
+  \onehalfspacing
+  \phantomsection
+  \begin{center}
+    \normalfont\sectfont\nobreak{#1}
+  \end{center}
+  \vspace{-0.5em}
+  }%
+}
 
 % FONT
 \usepackage{fontspec}
@@ -65,8 +76,8 @@
   Contextuals = {Alternate}]{Fira Code}
 \setmainfont[
   Scale       = MatchLowercase,
-  ScaleAgain  = 1.1,
-  LetterSpace = 1,
+  ScaleAgain  = 1.08,
+  LetterSpace = 2.5,
   Ligatures   = TeX]{Minion Pro}
 
 \newcommand{\threeast}{\bigskip\bigskip\par\centerline{*\quad*\quad*}\bigskip\par}%
@@ -92,6 +103,16 @@
 \usepackage[defaultlines=3, all]{nowidow}
 \brokenpenalty10000\relax
 
+\newcommand{\emptypage}{{
+  \clearpage
+  \singlespacing
+  \begin{center}
+  \scriptsize Diese Seite wurde absichtlich leer gelassen.
+  \end{center}
+  \newpage
+}
+}
+
 % FIGURE
 \usepackage{float}
 \usepackage[margin=15pt,font=footnotesize,labelfont={color=HighlightColor,bf,sf}]{caption}
@@ -112,8 +133,10 @@
 \captionsetup[subtable]{labelformat=simple, labelsep=colon}
 
 % TOC
+\usepackage{tocloft}
 \addto\captionsngerman{\renewcommand*\contentsname{Inhaltsverzeichnis}}
 \addto\captionsngerman{\renewcommand*\listfigurename{Abbildungsverzeichnis}}
+\addto\captionsngerman{\renewcommand*\listtablename{Tabellenverzeichnis}}
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
@@ -228,3 +251,8 @@
 % LINKS
 \usepackage[hidelinks]{hyperref}
 \urlstyle{tt}
+
+\KOMAoptions{
+  BCOR=10mm,
+  DIV=default
+}
