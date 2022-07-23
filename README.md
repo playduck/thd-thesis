@@ -10,6 +10,7 @@ It's opinionated regarding filestructure and packages but tries to provide reaso
 ## Building
 
 The project uses XeLaTeX and [makefile](makefile).
+The resulting document is compiled to the `./dist` folder.
 There are multiple targets:
 
 | Target        | Action                                                    | Use Case                                              |
@@ -19,10 +20,13 @@ There are multiple targets:
 | make all      | Multiple runs of `XeLaTeX`, `biber` and `makeglossaires`  | When adding new Acronyms, Literature, bigger changes  |
 | make open     | Opens compiled pdf                                        |                                                       |
 | make clean    | Removes entire build directory                            |                                                       |
-
 ---
 
-The resulting document is compiled to the `./dist` folder.
+### Naming convention
+
+Make sure to rename [`document.tex`](./document.tex) and the variable [`MAINFILE` in the makefile](./makefile#L2) to fit the required naming convention of `Lastname-Firstname-(Bachelor|Master)arbeit` as stated in [Section 2.7 of the Guidelines](https://th-deg.de/Studierende/Antraege-und-Organisatorisches/AI/Abschlussarbeiten_final_IAS_AI_LSI.pdf).
+
+### Installation
 
 - [Download a LaTeX distribution for your system](https://wiki.contextgarden.net/TeX_Distributions) (Required)
 - [Get Strawberry Pearl](https://strawberryperl.com) (Only Required on Windows)
