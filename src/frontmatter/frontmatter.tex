@@ -5,9 +5,11 @@
 \input{./src/frontmatter/titlepage.tex}
 \newpage
 
+\frontmatter
 \thispagestyle{empty}
 \clearpage\null
 \newpage
+\pagestyle{plain}
 
 \pagenumbering{roman}
 \setcounter{page}{1}
@@ -26,7 +28,6 @@
 \addcontentsline{toc}{section}{Inhaltsverzeichnis}
 \phantomsection
 \tableofcontents
-\newpage
 
 % Table of Tables
 \phantomsection
@@ -41,9 +42,10 @@
 % Acronyms
 \setglossarystyle{listdotted}
 \setglossarystyle{tree}
-\printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
+\printacronyms
+% \printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
 
 % Glossary
 \printglossary
 
-% \emptypage
+\cleartoleftpage

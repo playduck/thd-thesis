@@ -4,9 +4,9 @@
   fontsize    = 11pt,
   paper       = a4,
   twoside     = true,
-  parskip     = half,
+  parskip     = full,
   pagesize    = false,
-  usegeometry = true
+  usegeometry = true,
 }
 
 \usepackage[utf8]{inputenc}
@@ -86,15 +86,18 @@
   Contextuals = {Alternate}]{Fira Code}
 \setmainfont[
   Scale       = MatchLowercase,
-  ScaleAgain  = 1.09,
-  LetterSpace = 1.25,
+  % ScaleAgain  = 1.09,
+  % LetterSpace = 1.25,
   Ligatures   = TeX]{Minion Pro}
 
 % Three star symbol at the end of the colophon
 \newcommand{\threeast}{\bigskip\bigskip\par\centerline{*\quad*\quad*}\bigskip\par}%
 
 % UTILITY PACKAGES
+% Lorem Ipsum
 \usepackage{lipsum}% lorem ipsum blind text
+\usepackage{blindtext}% blind document
+
 \usepackage{tabto}% tab charachters
 \usepackage{setspace}% line spacing
 \usepackage{hologo}% Logos of LaTeX and friends
@@ -111,15 +114,10 @@
 \usepackage[defaultlines=3, all]{nowidow}% prohibits widows over pagebreaks
 \brokenpenalty10000\relax
 
-% typeset an intentionally empty page
-\newcommand{\emptypage}{{
+% clearpage to get to left
+\newcommand*\cleartoleftpage{%
   \clearpage
-  \singlespacing
-  \begin{center}
-  \scriptsize Diese Seite wurde absichtlich leer gelassen.
-  \end{center}
-  \newpage
-}
+  \ifodd\value{page}\hbox{}\newpage\fi
 }
 
 % FIGURE
@@ -161,6 +159,7 @@
 \let\oldmarginpar\marginpar
 \renewcommand\marginpar[2][]{%
 \oldmarginpar[\footnotesize #1]{\footnotesize #2}}
+\usepackage{marginfix}% better marginline positions
 
 % MATH
 \usepackage{amsmath}
@@ -264,8 +263,18 @@
 \usepackage[hidelinks]{hyperref}
 \urlstyle{tt}
 
-% binding correction
+% koma layout
+
 \KOMAoptions{
-  BCOR=15mm,
-  DIV=default
+  BCOR=10mm,
+  DIV=9
 }
+
+% better margin note layout
+% uncomment if your layout relies heavily on marginnotes
+% \KOMAoptions{
+%   mpinclude=true,
+%   BCOR=20mm,
+%   DIV=11
+%   }
+% \setlength{\marginparwidth}{2.6\marginparwidth}

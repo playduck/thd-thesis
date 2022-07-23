@@ -1,15 +1,10 @@
 
-{
-\setcounter{page}{0}
-\emptypage
-% content conventionally starts on right hand page
-% if you would like to change this see the following:
-% https://tex.stackexchange.com/a/444126/260462
-}
-
-
+\mainmatter
 \onehalfspacing
 \pagenumbering{arabic}
 \setcounter{page}{1}
+\pagestyle{scrheadings}
 
-\input{./src/mainmatter/content.tex}
+\input{./src/mainmatter/chapter1/chapter1.tex}
+
+\input{./src/mainmatter/chapter2/content.tex}

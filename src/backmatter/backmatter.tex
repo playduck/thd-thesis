@@ -1,22 +1,22 @@
 % Robin Prillwitz 2022
 
-% set empty pages if required
-\emptypage
-
 % BIBLIOGRAPHY
+\backmatter
 \singlespacing
 \setstretch{1}
 \nocite{*}
-\section*{\bibname}
-\addcontentsline{toc}{section}{\bibname}
+\chapter{\bibname}
+% \addcontentsline{toc}{chapter}{\bibname}
 \printbibliography[heading=none]
 
-% \emptypage
+\newpage
 
 %  APPENDIX
 \clearpage
 \input{./src/backmatter/appendix/appendix.tex}
-\clearpage
+
+\cleartoleftpage
+\pagestyle{plain}%remove headings
 
 % EIDENSTAT
 \input{./src/backmatter/eidesstatt.tex}

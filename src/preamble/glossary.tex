@@ -3,10 +3,21 @@
 \usepackage[acronym, toc]{glossaries}
 \usepackage[automake, nonumberlist, nogroupskip]{glossaries-extra}
 
-% \makeglossaries
+\renewcommand*{\glsclearpage}{} % remove gloassary pagebreak
+% \renewcommand*{\@@glossarysec}{section}
 \setabbreviationstyle[acronym]{long-short}
 \renewcommand*{\glstextformat}[1]{\textit{#1}} % cursive acronyms
-\renewcommand\glstreepredesc{\tabto{4cm}} % glossary spaceing
+\renewcommand\glstreepredesc{\tabto{4cm}} % glossary spacing
+
+% dirty hack to get acr and glossary titles to behave like toc and friends
+\makeatletter
+\renewcommand*{\glossarysection}[2][\@gls@title]{%
+  \def\@gls@title{#2}%
+    \section*{\huge #1}
+    \addcontentsline{toc}{section}{#1}
+  \glsglossarymark{\glossarytoctitle}%
+}
+\makeatother
 
 % --------------------------------- Acronyms -------------------------------- %
 \newacronym{acr}{ACR}{Acronym}
