@@ -1,6 +1,6 @@
 OUTPUTDIRECTORY = dist
 MAINFILE = document
-LC = xelatex
+LC = lualatex
 
 ifeq ($(OS),Windows_NT)
 	OPEN = start texworks
