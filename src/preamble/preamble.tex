@@ -1,12 +1,13 @@
 % Robin Prillwitz 2022
 
 \KOMAoptions{
-  fontsize    = 11pt,
-  paper       = a4,
-  twoside     = true,
-  parskip     = full,
-  pagesize    = false,
-  usegeometry = true,
+  fontsize      = 11pt,
+  paper         = a4,
+  twoside       = true,
+  parskip       = full,
+  pagesize      = false,
+  chapterprefix = true,
+  usegeometry   = true,
 }
 
 \usepackage[utf8]{inputenc}
@@ -14,11 +15,10 @@
 % PAGE SETUP
 % uncomment to add bleed
 % a4 + 4mm bleed (2mm on each edge)
-% \usepackage[cross,axes,center,width=214truemm,height=301truemm]{crop}
+\usepackage[cross,axes,center,width=214truemm,height=301truemm]{crop}
 
 % must import geometry after crop
 \usepackage[]{geometry}
-
 
 % LOCALIZATION
 \usepackage[ngerman]{babel}
@@ -66,7 +66,7 @@
   \begin{center}
     \normalfont\sectfont\nobreak{#1}
   \end{center}
-  \vspace{-0.5em}
+  \vspace{-0.5ex}
   }%
 }
 
@@ -74,24 +74,41 @@
 \usepackage[T1]{fontenc}
 \usepackage{fontspec}
 \usepackage{textcomp}
+
 \newfontfamily\Verdana{Verdana}[Scale=MatchLowercase, Ligatures=TeX]
 \newfontfamily\Helvetica{Helvetica Neue}[Scale=MatchLowercase, Ligatures=TeX]
 \newfontfamily\FiraCode{Fira Code}[Scale=MatchLowercase, Ligatures=TeX]
 \newfontfamily\MinionPro{Minion Pro}[Scale=MatchLowercase, Ligatures=TeX]
+
 \setsansfont[
-  Ligatures=TeX]{Helvetica Neue}
+  Scale       = MatchLowercase,
+  ScaleAgain  = 1.08,
+  Ligatures   = TeX]{Helvetica Neue}
+
+
 \setmonofont[
   Scale       = MatchLowercase,
+  UprightFont = *-Regular,
+  BoldFont    = *-Bold,
   Ligatures   = TeX,
   Contextuals = {Alternate}]{Fira Code}
+
+
 \setmainfont[
   Scale       = MatchLowercase,
+  UprightFont =  *-Regular,
+  BoldFont    =  *-Bold,
+  ItalicFont  =  *-It,
   % ScaleAgain  = 1.09,
   % LetterSpace = 1.25,
   Ligatures   = TeX]{Minion Pro}
 
 % Three star symbol at the end of the colophon
-\newcommand{\threeast}{\bigskip\bigskip\par\centerline{*\quad*\quad*}\bigskip\par}%
+\newcommand{\threeast}{
+\begin{center}
+  {$\ast\quad\ast\quad\ast$}
+\end{center}
+}%
 
 % UTILITY PACKAGES
 % Lorem Ipsum
@@ -101,7 +118,7 @@
 \usepackage{tabto}% tab charachters
 \usepackage{setspace}% line spacing
 \usepackage{hologo}% Logos of LaTeX and friends
-\usepackage[nopatch=eqnum]{microtype}% micro typography adjustments
+\usepackage[protrusion=true,expansion,tracking=true,nopatch=eqnum]{microtype}% micro typography adjustments
 
 \usepackage[inline]{enumitem}% lists and enumerations
 \setlist{itemsep=0em, parsep=0em} % remove inter-item spacing
@@ -117,7 +134,15 @@
 % clearpage to get to left
 \newcommand*\cleartoleftpage{%
   \clearpage
-  \ifodd\value{page}\hbox{}\newpage\fi
+  \ifodd\value{page}
+  \vspace*{\fill}
+  \thispagestyle{empty}
+  \begin{center}
+  \footnotesize{[Diese Seite wurde absichtlich frei gelassen.]}
+  \end{center}
+  \vfill
+  \clearpage\newpage
+  \fi
 }
 
 % FIGURE
@@ -194,7 +219,7 @@
 \usetikzlibrary{calc}
 \usetikzlibrary{shapes}
 \usetikzlibrary{decorations.markings}
-\usetikzlibrary{arrows,snakes,automata,backgrounds,petri}
+\usetikzlibrary{arrows,automata,backgrounds,petri}
 
 \usepackage{tikz-timing}
 \usetikztiminglibrary[rising arrows]{clockarrows}
@@ -209,6 +234,7 @@
 \usepackage{pgfplots}
 \usepackage{pgfplotstable}
 \usepackage{pgfgantt}
+\usepackage{pgfornament}
 \pgfplotsset{
   compat=1.18, % lastest release as of 2022-07-02
   table/search path={./data},
@@ -276,5 +302,5 @@
 %   mpinclude=true,
 %   BCOR=20mm,
 %   DIV=11
-%   }
+% }l
 % \setlength{\marginparwidth}{2.6\marginparwidth}
