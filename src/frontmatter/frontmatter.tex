@@ -1,6 +1,7 @@
 % Robin Prillwitz 2022
 
-\singlespacing
+\frontmatter
+
 \setcounter{page}{1}
 \input{./src/frontmatter/titlepage.tex}
 \newpage
@@ -24,30 +25,21 @@
 \newpage
 
 % Table of Contents
-\setlength{\cftbeforesecskip}{4pt}
-\addcontentsline{toc}{section}{Inhaltsverzeichnis}
-\phantomsection
 \tableofcontents
-
 \newpage
 
+\addcontentsline{toc}{chapter}{Listen}
+
 % Table of Tables
-\phantomsection
-\addcontentsline{toc}{section}{Tabellenverzeichnis}
 \listoftables
 
 % Table of Figures
-\phantomsection
-\addcontentsline{toc}{section}{Abbildungsverzeichnis}
 \listoffigures
 
 % Acronyms
 \setglossarystyle{listdotted}
 \setglossarystyle{tree}
+\setglossarysection{section}
 \printacronyms
-% \printglossary[type=\acronymtype, title=Abkürzungsverzeichnis]
-
-% Glossary
-\printglossary
 
 \cleartoleftpage

@@ -1,16 +1,23 @@
 % Robin Prillwitz 2022
 
+\backmatter
+
 % BIBLIOGRAPHY
 \cleartoleftpage
 
 \singlespacing
-\setstretch{1}
-\nocite{*}
+% \setstretch{1}
+
 \chapter*{\bibname}
 \addcontentsline{toc}{chapter}{\bibname}
+\nocite{*}
 \printbibliography[heading=none]
 
 \newpage
+
+% Glossary
+\setglossarysection{chapter}
+\printglossary[]
 
 %  APPENDIX
 \clearpage

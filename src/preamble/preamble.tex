@@ -4,9 +4,11 @@
   fontsize      = 11pt,
   paper         = a4,
   twoside       = true,
-  parskip       = full,
+  parskip       = half,
   pagesize      = false,
   chapterprefix = true,
+  listof        = totoc,
+  listof        = leveldown,
   usegeometry   = true,
 }
 
@@ -15,7 +17,7 @@
 % PAGE SETUP
 % uncomment to add bleed
 % a4 + 4mm bleed (2mm on each edge)
-\usepackage[cross,axes,center,width=214truemm,height=301truemm]{crop}
+% \usepackage[cross,axes,center,width=214truemm,height=301truemm]{crop}
 
 % must import geometry after crop
 \usepackage[]{geometry}
@@ -164,7 +166,7 @@
 \captionsetup[subtable]{labelformat=simple, labelsep=colon}
 
 % TOC
-\usepackage{tocloft}
+% \usepackage{tocloft}
 \addto\captionsngerman{\renewcommand*\contentsname{Inhaltsverzeichnis}}
 \addto\captionsngerman{\renewcommand*\listfigurename{Abbildungsverzeichnis}}
 \addto\captionsngerman{\renewcommand*\listtablename{Tabellenverzeichnis}}
@@ -190,19 +192,6 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage[locale=DE]{siunitx}
-
-% square root hack
-% adds a trailing vertical edge to square roots
-\makeatletter
-  \let\oldr@@t\r@@t
-  \def\r@@t#1#2{%
-  \setbox0=\hbox{$\oldr@@t#1{#2\,}$}\dimen0=\ht0
-  \advance\dimen0-0.2\ht0
-  \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
-  {\box0\lower0.4pt\box2}}
-  \LetLtxMacro{\oldsqrt}{\sqrt}
-  \renewcommand*{\sqrt}[2][\ ]{\oldsqrt[#1]{#2} }
-\makeatother
 
 % FLOAT COUNTER
 \floatstyle{ruled}
@@ -292,8 +281,8 @@
 % koma layout
 
 \KOMAoptions{
-  BCOR=10mm,
-  DIV=9
+  BCOR=15mm,
+  DIV=11
 }
 
 % better margin note layout
@@ -302,5 +291,5 @@
 %   mpinclude=true,
 %   BCOR=20mm,
 %   DIV=11
-% }l
+% }
 % \setlength{\marginparwidth}{2.6\marginparwidth}
