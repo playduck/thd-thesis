@@ -78,23 +78,16 @@
 \usepackage{textcomp}
 
 \newfontfamily\Verdana{Verdana}[Scale=MatchLowercase, Ligatures=TeX]
-\newfontfamily\Helvetica{Helvetica Neue}[Scale=MatchLowercase, Ligatures=TeX]
-\newfontfamily\FiraCode{Fira Code}[Scale=MatchLowercase, Ligatures=TeX]
-\newfontfamily\MinionPro{Minion Pro}[Scale=MatchLowercase, Ligatures=TeX]
 
 \setsansfont[
   Scale       = MatchLowercase,
   ScaleAgain  = 1.08,
   Ligatures   = TeX]{Helvetica Neue}
 
-
 \setmonofont[
   Scale       = MatchLowercase,
-  UprightFont = *-Regular,
-  BoldFont    = *-Bold,
   Ligatures   = TeX,
   Contextuals = {Alternate}]{Fira Code}
-
 
 \setmainfont[
   Scale       = MatchLowercase,
@@ -129,7 +122,7 @@
 \usepackage{pdfpages}% insert external pdfs
 \usepackage{letltxmacro}% robust macros for sqrt
 \usepackage{ifplatform}% check current platform
-\renewcommand{\macosxname}{{\Helvetica MacOs}}
+\renewcommand{\macosxname}{{\sffamily MacOs}}
 \usepackage[defaultlines=3, all]{nowidow}% prohibits widows over pagebreaks
 \brokenpenalty10000\relax
 
@@ -237,8 +230,8 @@
     language=C++,
     rangeprefix=//\ ---\ ,rangesuffix=\ ---,
     includerangemarker=false,
-    numberstyle=\FiraCode\color{black},
-    basicstyle=\FiraCode\color{black},
+    numberstyle=\ttfamily\color{black},
+    basicstyle=\ttfamily\color{black},
     backgroundcolor=\color{White},
     keywordstyle=\color{Orchid}\bfseries,
     rulesepcolor=\color{DarkGray},
