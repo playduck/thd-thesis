@@ -128,16 +128,16 @@
 
 % clearpage to get to left
 \newcommand*\cleartoleftpage{%
-  \clearpage
-  \ifodd\value{page}
+\clearpage
+\ifodd\value{page}
   \vspace*{\fill}
   \thispagestyle{empty}
   \begin{center}
-  \footnotesize{[Diese Seite wurde absichtlich frei gelassen.]}
+    \footnotesize{[Diese Seite wurde absichtlich frei gelassen.]}
   \end{center}
   \vfill
   \clearpage\newpage
-  \fi
+\fi
 }
 
 % FIGURE
@@ -275,7 +275,7 @@
 
 \KOMAoptions{
   BCOR=15mm,
-  DIV=11
+  DIV=9
 }
 
 % better margin note layout
