@@ -1,0 +1,40 @@
+% CODE
+
+\usepackage{accsupp}% accessibility, required for lstlistings
+\usepackage{listings}
+\renewcommand\lstlistingname{Sourcecode} % Change language of section name
+\lstset{ % General setup for the package
+    language=C++,
+    rangeprefix=//\ ---\ ,rangesuffix=\ ---,
+    includerangemarker=false,
+    numberstyle=\ttfamily\color{black},
+    basicstyle=\ttfamily\color{black},
+    backgroundcolor=\color{White},
+    keywordstyle=\color{Orchid}\bfseries,
+    rulesepcolor=\color{DarkGray},
+    rulecolor=\color{Black},
+    stringstyle=\color{Emerald},
+    commentstyle=\color{LightSlateGrey},
+    directivestyle={\color{RoyalPurple}},
+    %
+    emph={},
+    emphstyle={\color{BlueViolet}},
+    %
+    otherkeywords = {;,<<,>>,++,|},
+    keywordstyle=\color{WildStrawberry},
+    literate={{*}{\texttt{*}}1},% replace fira-code asterist ligature
+    numbers=left,
+    frame=shadowbox,
+    tabsize=4,
+    columns=fixed,
+    showstringspaces=true,
+    showtabs=false,
+    showspaces=false,
+    keepspaces,
+    breaklines=true,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\BeginAccSupp{ActualText={}}\ensuremath{\color{gray}\hookrightarrow\space}\EndAccSupp{}},
+    captionpos=b,
+    title=\lstname,
+    float,
+    belowskip=-0.2cm
+}

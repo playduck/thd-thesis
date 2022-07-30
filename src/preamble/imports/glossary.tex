@@ -1,0 +1,20 @@
+% Robin Prillwitz 2022
+
+\usepackage[
+  acronym, toc
+]{glossaries}
+\usepackage[automake, nonumberlist, nogroupskip]{glossaries-extra}
+
+\renewcommand*{\glsclearpage}{} % remove gloassary pagebreak
+% \renewcommand*{\@@glossarysec}{section}
+\setabbreviationstyle[acronym]{long-short}
+\renewcommand*{\glstextformat}[1]{\textit{#1}} % cursive acronyms
+\renewcommand\glstreepredesc{\tabto{4cm}} % glossary spacing
+
+% --------------------------------- Acronyms -------------------------------- %
+\newacronym{acr}{ACR}{Acronym}
+
+% --------------------------------- Glossary -------------------------------- %
+\newglossaryentry{glossary}{name={Glossar}, description={Eine kurze Sammlung von Fachausdrücken}}
+
+\makeglossaries

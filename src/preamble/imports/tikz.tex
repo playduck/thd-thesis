@@ -1,0 +1,34 @@
+% TIKZ & PGF
+
+\usepackage{tikz}
+\usepackage{tikzpagenodes}
+\usetikzlibrary{patterns}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{arrows,automata,backgrounds,petri}
+
+\usepackage{tikz-timing}
+\usetikztiminglibrary[rising arrows]{clockarrows}
+\NewDocumentCommand{\busref}{som}{\texttt{%
+#3%
+\IfValueTF{#2}{[#2]}{}%
+\IfBooleanTF{#1}{\#}{}%
+}}
+
+\usepackage[european, betterproportions]{circuitikz}
+
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\usepackage{pgfgantt}
+\usepackage{pgfornament}
+\pgfplotsset{
+  compat=1.18, % lastest release as of 2022-07-02
+  table/search path={./data},
+}
+
+% GRAPHICS
+
+\usepackage{graphicx}
+\usepackage{grffile}
+\graphicspath{{img/}}

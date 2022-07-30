@@ -1,0 +1,32 @@
+% FONT
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec}
+\usepackage{textcomp}
+
+\newfontfamily\Verdana{Verdana}[
+    Scale=MatchLowercase, Ligatures=TeX
+]
+
+\setsansfont[
+    Scale       = MatchLowercase,
+    ScaleAgain  = 1.08,
+    Ligatures   = TeX
+]{Helvetica Neue}
+
+\setmonofont[
+    Scale       = MatchLowercase,
+    Ligatures   = TeX,
+    Contextuals = {Alternate}
+]{Fira Code}
+
+\setmainfont[
+    Scale       = MatchLowercase,
+    UprightFont =  *-Regular,
+    BoldFont    =  *-Bold,
+    ItalicFont  =  *-It,
+    % ScaleAgain  = 1.09,
+    % LetterSpace = 1.25,
+    Ligatures   = TeX
+]{Minion Pro}

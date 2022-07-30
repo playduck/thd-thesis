@@ -6,283 +6,32 @@
   twoside       = true,
   parskip       = half,
   pagesize      = false,
-  chapterprefix = true,
+  chapterprefix = false,
   listof        = totoc,
   listof        = leveldown,
   usegeometry   = true,
 }
 
-\usepackage[utf8]{inputenc}
+\input{./src/preamble/imports/colors.tex}
+\input{./src/preamble/imports/setup.tex}
+\input{./src/preamble/imports/fonts.tex}
+\input{./src/preamble/imports/macros.tex}
+\input{./src/preamble/imports/tikz.tex}
+\input{./src/preamble/imports/code.tex}
+\input{./src/preamble/imports/bibliography.tex}
+\input{./src/preamble/imports/glossary.tex}
 
-% PAGE SETUP
-% uncomment to add bleed
-% a4 + 4mm bleed (2mm on each edge)
-% \usepackage[cross,axes,center,width=214truemm,height=301truemm]{crop}
-
-% must import geometry after crop
-\usepackage[]{geometry}
-
-% LOCALIZATION
-\usepackage[ngerman]{babel}
-\usepackage[iso,german]{isodate}
-\usepackage{hyphenat}
-\hyphenation{Mathe-matik wieder-gewinnen}
-\usepackage[babel=true]{csquotes}
-
-% APPENDIX
-\usepackage[toc,page]{appendix}
-\renewcommand{\appendixpagename}{\section*{Anhang}}
-\renewcommand{\appendixtocname}{Anhang}
-
-% COLOR
-\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
-
-% Colors of THD faculties
-\definecolor{THDGreen}      {HTML}{13a538}% BIW
-\definecolor{THDDarkRed}    {HTML}{b2110e}% AWW
-\definecolor{THDYellow}     {HTML}{ffd500}% EMT
-\definecolor{THDStrongBlue} {HTML}{0085c8}% MB-MK
-\definecolor{THDPurple}     {HTML}{59358c}% NUW
-\definecolor{THDOrange}     {HTML}{f18700}% AGW
-\definecolor{THDBrightRed}  {HTML}{e73d55}% AI
-\definecolor{THDCyan}       {HTML}{17a2b0}% ECRI
-
-% Additional Colors
-\definecolor{THDWhite}      {HTML}{ffffff}
-\definecolor{THDBlack}      {HTML}{000000}
-\definecolor{THDGrey}       {HTML}{313131}
-\definecolor{THDDonauBlau}  {HTML}{009fe3}% Website custom.css:root
-\definecolor{THDBlau}       {HTML}{1a4273}% Website custom.css:root
-
-% Global document highlight color
-\colorlet{HighlightColor}{THDBlau}
-\newcommand\HighlightColor{\color{HighlightColor}}
-
-% FONT COLOR
-\addtokomafont{disposition}{\HighlightColor\sffamily}
-\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
-\newcommand{\centersection}[1]{
-  {
-  \onehalfspacing
-  \phantomsection
-  \begin{center}
-    \normalfont\sectfont\nobreak{#1}
-  \end{center}
-  \vspace{-0.5ex}
-  }%
-}
-
-% FONT
-\usepackage[T1]{fontenc}
-\usepackage{fontspec}
-\usepackage{textcomp}
-
-\newfontfamily\Verdana{Verdana}[Scale=MatchLowercase, Ligatures=TeX]
-
-\setsansfont[
-  Scale       = MatchLowercase,
-  ScaleAgain  = 1.08,
-  Ligatures   = TeX]{Helvetica Neue}
-
-\setmonofont[
-  Scale       = MatchLowercase,
-  Ligatures   = TeX,
-  Contextuals = {Alternate}]{Fira Code}
-
-\setmainfont[
-  Scale       = MatchLowercase,
-  UprightFont =  *-Regular,
-  BoldFont    =  *-Bold,
-  ItalicFont  =  *-It,
-  % ScaleAgain  = 1.09,
-  % LetterSpace = 1.25,
-  Ligatures   = TeX]{Minion Pro}
-
-% Three star symbol at the end of the colophon
-\newcommand{\threeast}{
-\begin{center}
-  {$\ast\quad\ast\quad\ast$}
-\end{center}
-}%
-
-% UTILITY PACKAGES
-% Lorem Ipsum
-\usepackage{lipsum}% lorem ipsum blind text
-\usepackage{blindtext}% blind document
-
-\usepackage{tabto}% tab charachters
-\usepackage{setspace}% line spacing
-\usepackage{hologo}% Logos of LaTeX and friends
-\usepackage[protrusion=true,expansion,tracking=true,nopatch=eqnum]{microtype}% micro typography adjustments
-
-\usepackage[inline]{enumitem}% lists and enumerations
-\setlist{itemsep=0em, parsep=0em} % remove inter-item spacing
-
-\usepackage{url}% URLs
-\usepackage{pdfpages}% insert external pdfs
-\usepackage{letltxmacro}% robust macros for sqrt
-\usepackage{ifplatform}% check current platform
-\renewcommand{\macosxname}{{\sffamily MacOs}}
-\usepackage[defaultlines=3, all]{nowidow}% prohibits widows over pagebreaks
-\brokenpenalty10000\relax
-
-% clearpage to get to left
-\newcommand*\cleartoleftpage{%
-\clearpage
-\ifodd\value{page}
-  \vspace*{\fill}
-  \thispagestyle{empty}
-  \begin{center}
-    \footnotesize{[Diese Seite wurde absichtlich frei gelassen.]}
-  \end{center}
-  \vfill
-  \clearpage\newpage
-\fi
-}
-
-% FIGURE
-\usepackage{float}
-\usepackage[margin=15pt,font=footnotesize,labelfont={color=HighlightColor,bf,sf}]{caption}
-\usepackage{subcaption}
-\usepackage{wrapfig}
-\interfootnotelinepenalty=10000
-
-% GRAPHICS
-\usepackage{graphicx}
-\usepackage{grffile}
-\graphicspath{{img/}}
-
-% TABLE
-\usepackage{tabularx}
-\newcolumntype{Y}{>{\centering\arraybackslash}X}
-\captionsetup[table]{labelformat=simple, labelsep=colon}
-\captionsetup[subtable]{labelformat=simple, labelsep=colon}
-
-% TOC
-% \usepackage{tocloft}
-\addto\captionsngerman{\renewcommand*\contentsname{Inhaltsverzeichnis}}
-\addto\captionsngerman{\renewcommand*\listfigurename{Abbildungsverzeichnis}}
-\addto\captionsngerman{\renewcommand*\listtablename{Tabellenverzeichnis}}
-\setcounter{secnumdepth}{4}
-\setcounter{tocdepth}{4}
-
-% HEADER & FOOTER
-\usepackage{scrlayer}
-\usepackage[]{scrlayer-scrpage}
-\ofoot*{\pagemark}
-\cfoot*{}
-
-% increase distance between footnote and textarea
-\setlength{\skip\footins}{10mm plus 2mm}
-
-% scale marginnotes to footnote size
-\let\oldmarginpar\marginpar
-\renewcommand\marginpar[2][]{%
-\oldmarginpar[\footnotesize #1]{\footnotesize #2}}
-\usepackage{marginfix}% better marginline positions
-
-% MATH
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage[locale=DE]{siunitx}
-
-% FLOAT COUNTER
-\floatstyle{ruled}
-\newfloat{program}{thp}{lop}
-\floatname{program}{Program}
-\floatname{figure}{Abbildung}
-\renewcommand{\thetable}{\arabic{table}}
-\renewcommand{\thefigure}{\arabic{figure}}
-
-% TIKZ & PGF
-\usepackage{tikz}
-\usepackage{tikzpagenodes}
-\usetikzlibrary{patterns}
-\usetikzlibrary{calc}
-\usetikzlibrary{shapes}
-\usetikzlibrary{decorations.markings}
-\usetikzlibrary{arrows,automata,backgrounds,petri}
-
-\usepackage{tikz-timing}
-\usetikztiminglibrary[rising arrows]{clockarrows}
-\NewDocumentCommand{\busref}{som}{\texttt{%
-#3%
-\IfValueTF{#2}{[#2]}{}%
-\IfBooleanTF{#1}{\#}{}%
-}}
-
-\usepackage[european, betterproportions]{circuitikz}
-
-\usepackage{pgfplots}
-\usepackage{pgfplotstable}
-\usepackage{pgfgantt}
-\usepackage{pgfornament}
-\pgfplotsset{
-  compat=1.18, % lastest release as of 2022-07-02
-  table/search path={./data},
-}
-
-% CODE
-\usepackage{accsupp}% accessibility, required for lstlistings
-\usepackage{listings}
-\renewcommand\lstlistingname{Sourcecode} % Change language of section name
-\lstset{ % General setup for the package
-    language=C++,
-    rangeprefix=//\ ---\ ,rangesuffix=\ ---,
-    includerangemarker=false,
-    numberstyle=\ttfamily\color{black},
-    basicstyle=\ttfamily\color{black},
-    backgroundcolor=\color{White},
-    keywordstyle=\color{Orchid}\bfseries,
-    rulesepcolor=\color{DarkGray},
-    rulecolor=\color{Black},
-    stringstyle=\color{Emerald},
-    commentstyle=\color{LightSlateGrey},
-    directivestyle={\color{RoyalPurple}},
-    %
-    emph={},
-    emphstyle={\color{BlueViolet}},
-    %
-    otherkeywords = {;,<<,>>,++,|},
-    keywordstyle=\color{WildStrawberry},
-    literate={{*}{\texttt{*}}1},% replace fira-code asterist ligature
-    numbers=left,
-    frame=shadowbox,
-    tabsize=4,
-    columns=fixed,
-    showstringspaces=true,
-    showtabs=false,
-    showspaces=false,
-    keepspaces,
-    breaklines=true,
-    postbreak=\raisebox{0ex}[0ex][0ex]{\BeginAccSupp{ActualText={}}\ensuremath{\color{gray}\hookrightarrow\space}\EndAccSupp{}},
-    captionpos=b,
-    title=\lstname,
-    float,
-    belowskip=-0.2cm
-}
-
-% INCLUDES
 \input{./src/preamble/meta.tex}
-\input{./src/preamble/bibliography.tex}
-\input{./src/preamble/glossary.tex}
 
 % LINKS
 \usepackage[hidelinks]{hyperref}
 \urlstyle{tt}
 
-% koma layout
-
+% KOMA Layout & Margins
 \KOMAoptions{
+  mpinclude=false,
   BCOR=15mm,
   DIV=9
 }
-
-% better margin note layout
-% uncomment if your layout relies heavily on marginnotes
-% \KOMAoptions{
-%   mpinclude=true,
-%   BCOR=20mm,
-%   DIV=11
-% }
+% for use with marginlines
 % \setlength{\marginparwidth}{2.6\marginparwidth}

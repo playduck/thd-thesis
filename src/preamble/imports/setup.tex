@@ -1,0 +1,87 @@
+% PAGE SETUP
+% uncomment to add bleed
+% a4 + 4mm bleed (2mm on each edge)
+% \usepackage[cross,axes,center,width=214truemm,height=301truemm]{crop}
+
+% must import geometry after crop
+\usepackage[]{geometry}
+
+% LOCALIZATION
+\usepackage[ngerman]{babel}
+\usepackage[iso,german]{isodate}
+\usepackage{hyphenat}
+\hyphenation{Mathe-matik wieder-gewinnen}
+\usepackage[babel=true]{csquotes}
+
+% APPENDIX
+\usepackage[toc,page]{appendix}
+\renewcommand{\appendixpagename}{\section*{Anhang}}
+\renewcommand{\appendixtocname}{Anhang}
+
+% FONT COLOR
+\addtokomafont{disposition}{\HighlightColor\sffamily}
+
+% UTILITY PACKAGES
+\usepackage{lipsum}% lorem ipsum blind text
+\usepackage{blindtext}% blind document
+
+\usepackage{tabto}% tab charachters
+\usepackage{setspace}% line spacing
+\usepackage{hologo}% Logos of LaTeX and friends
+\usepackage[protrusion=true,expansion,tracking=true,nopatch=eqnum]{microtype}% micro typography adjustments
+
+\usepackage[inline]{enumitem}% lists and enumerations
+\setlist{itemsep=0em, parsep=0em} % remove inter-item spacing
+
+\usepackage{url}% URLs
+\usepackage{pdfpages}% insert external pdfs
+\usepackage{letltxmacro}% robust macros for sqrt
+\usepackage{ifplatform}% check current platform
+\renewcommand{\macosxname}{{\sffamily MacOs}}
+\usepackage[defaultlines=3, all]{nowidow}% prohibits widows over pagebreaks
+\brokenpenalty10000\relax
+
+% FIGURE
+\usepackage{float}
+\usepackage[margin=15pt,font=footnotesize,labelfont={color=HighlightColor,bf,sf}]{caption}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\interfootnotelinepenalty=10000
+
+% TABLE
+\usepackage{tabularx}
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\captionsetup[table]{labelformat=simple, labelsep=colon}
+\captionsetup[subtable]{labelformat=simple, labelsep=colon}
+
+% TOC
+\setuptoc{toc}{leveldown}% toc at section level
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{4}
+
+% HEADER & FOOTER
+\usepackage{scrlayer}
+\usepackage[]{scrlayer-scrpage}
+\ofoot*{\pagemark}
+\cfoot*{}
+
+% increase distance between footnote and textarea
+\setlength{\skip\footins}{10mm plus 2mm}
+% scale marginnotes to footnote size
+\let\oldmarginpar\marginpar
+\renewcommand\marginpar[2][]{%
+\oldmarginpar[\footnotesize #1]{\footnotesize #2}}
+\usepackage{marginfix}% better marginline positions
+
+% MATH
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[locale=DE]{siunitx}
+
+% FLOAT COUNTER
+\floatstyle{ruled}
+\newfloat{program}{thp}{lop}
+\floatname{program}{Program}
+\floatname{figure}{Abbildung}
+\renewcommand{\thetable}{\arabic{table}}
+\renewcommand{\thefigure}{\arabic{figure}}

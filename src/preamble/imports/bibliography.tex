@@ -1,0 +1,30 @@
+% Robin Prillwitz 2022
+
+% ----------------------------- biblatex w/ biber ---------------------------- %
+% citing using IEEE Style
+% https://ieee-dataport.org/sites/default/files/analysis/27/IEEE%20Citation%20Guidelines.pdf
+\usepackage[
+	backend=biber,
+	natbib=true,
+	sorting=nyt,
+	style=ieee-alphabetic,
+	giveninits=true,
+	sortlocale=de_DE,
+	backref=true,
+	style=numeric,
+]{biblatex}
+
+% forbid pagebreaks in bib entry
+\patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
+
+% ------------------------------- bib resouces ------------------------------- %
+\addbibresource{./references/references.bib}
+
+% ------------------------------- localization ------------------------------- %
+\DefineBibliographyStrings{ngerman}{%
+		bibliography    = {Literaturverzeichnis},
+		nodate          = {o.J.},
+		backrefpage		= {siehe Seite},
+		backrefpages	= {siehe Seiten},
+		andothers		= {et al.}
+}

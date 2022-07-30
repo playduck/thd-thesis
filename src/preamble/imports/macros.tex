@@ -1,0 +1,37 @@
+% MACROS
+
+% Add Level 4 \subsubsubsection
+\newcommand{\subsubsubsection}[1]{\paragraph{#1}\mbox{}\\}
+
+% Custom centered section title
+\newcommand{\centersection}[1]{
+  {
+  \onehalfspacing
+  \phantomsection
+  \begin{center}
+    \normalfont\sectfont\nobreak{#1}
+  \end{center}
+  \vspace{-0.5ex}
+  }%
+}
+
+% Three star symbol
+\newcommand{\threeast}{
+\begin{center}
+  {$\ast\quad\ast\quad\ast$}
+\end{center}
+}%
+
+% clearpage to get to left
+\newcommand*\cleartoleftpage{%
+\clearpage
+\ifodd\value{page}
+  \vspace*{\fill}
+  \thispagestyle{empty}
+  \begin{center}
+    \footnotesize{[Diese Seite wurde absichtlich frei gelassen.]}
+  \end{center}
+  \vfill
+  \clearpage\newpage
+\fi
+}
