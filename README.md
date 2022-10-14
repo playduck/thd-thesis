@@ -5,19 +5,19 @@ This template was specifically designed to meet requirements of the "Applied Com
 [Link to german requirements](https://th-deg.de/Studierende/Antraege-und-Organisatorisches/AI/Abschlussarbeiten_final_IAS_AI_LSI.pdf).
 It's opinionated regarding filestructure and packages but tries to provide reasonable defaults.
 
-**This template is provided without warranty or support.**
+**This template is provided "as is" without warranty or support under BSD-3.**
 
 ## Building
 
-The project uses XeLaTeX and [makefile](makefile).
+The project uses LuaLaTeX and [makefile](makefile).
 The resulting document is compiled to the `./dist` folder.
 There are multiple targets:
 
 | Target        | Action                                                    | Use Case                                              |
 |---------------|-----------------------------------------------------------|-------------------------------------------------------|
 | make          | Build using `latexmk`                                     | Small changes (Recommended)                           |
-| make once     | One run of `XeLaTeX`                                      | When `latexmk` fails                                  |
-| make all      | Multiple runs of `XeLaTeX`, `biber` and `makeglossaires`  | When adding new Acronyms, Literature, bigger changes  |
+| make once     | One run of `LuaLaTeX`                                     | When `latexmk` fails                                  |
+| make all      | Multiple runs of `LuaLaTeX`, `biber` and `makeglossaires` | When adding new Acronyms, Literature, bigger changes  |
 | make open     | Opens compiled pdf                                        |                                                       |
 | make clean    | Removes entire build directory                            |                                                       |
 ---
