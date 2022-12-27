@@ -43,7 +43,11 @@
 
 % FIGURE
 \usepackage{float}
-\usepackage[margin=15pt,font=footnotesize,labelfont={color=HighlightColor,bf,sf}]{caption}
+\usepackage[
+  margin=15pt,
+  font=footnotesize,
+  labelfont={color=HighlightColor,bf,sf},
+  ]{caption}
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \interfootnotelinepenalty=10000
@@ -96,5 +100,5 @@
 \newfloat{program}{thp}{lop}
 \floatname{program}{Program}
 \floatname{figure}{Abbildung}
-\renewcommand{\thetable}{\arabic{table}}
-\renewcommand{\thefigure}{\arabic{figure}}
+\counterwithin{figure}{chapter}
+\counterwithin{table}{chapter}
