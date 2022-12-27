@@ -59,6 +59,17 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
+% List of Equations
+\DeclareNewTOC[listname={Gleichungsverzeichnis},type=equation]{loe}
+% And a command to add entries to the file:
+\newcommand*{\setequationentry}[2][0]{%
+  \begingroup
+    \advance \value{equation} by #1\relax
+    \addxcontentsline{loe}{equation}[\theequation]{#2}%
+  \endgroup
+  \ignorespaces
+}
+
 % HEADER & FOOTER
 \usepackage{scrlayer}
 \usepackage[]{scrlayer-scrpage}
