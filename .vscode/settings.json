@@ -1,8 +1,9 @@
 {
     "editor.wordWrap": "on",
 
-    "cSpell.enabled": false,
+    "cSpell.enabled": true,
     "cSpell.language": "de",
+    "ltex.language": "de-DE",
 
     "[latex]": {
         "editor.quickSuggestions": {

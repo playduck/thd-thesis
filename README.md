@@ -32,6 +32,13 @@ Make sure to rename [`document.tex`](./document.tex) and the variable [`MAINFILE
 - [Get Strawberry Pearl](https://strawberryperl.com) (Only Required on Windows)
 - [Installing `make` on Windows](https://www.technewstoday.com/install-and-use-make-in-windows/) ([Wayback Mirror](https://web.archive.org/web/20220623033912/https://www.technewstoday.com/install-and-use-make-in-windows/)) (Only Required on Windows)
 
+### Vscode
+
+If you're using [`Vscode`](https://code.visualstudio.com) (strongly recommended), be sure to install the following extensions:
+- [`Code Spell Checker`](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker): Spell checking
+- [`German Code Spell Checker`](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker-german): German extension for cSpell
+- [`LTeX`](https://marketplace.visualstudio.com/items?itemName=valentjn.vscode-ltex): Latex Spell and Grammer checking
+- [`LaTeX Workshop`](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop): LaTeX language support for Vscode (**Donot use version 9.2.0** as it contains performance issues. Manually install using the `.vsix` file)
 
 ## License
 
