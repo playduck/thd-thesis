@@ -35,3 +35,11 @@
   \clearpage\newpage
 \fi
 }
+
+\newcommand*\cleartorightpage{%
+\clearpage
+\ifodd\value{page}
+\else
+  \clearpage\null\newpage
+\fi
+}
