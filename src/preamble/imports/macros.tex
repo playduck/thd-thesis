@@ -36,10 +36,29 @@
 \fi
 }
 
+% clearpage to get to right
 \newcommand*\cleartorightpage{%
 \clearpage
 \ifodd\value{page}
 \else
   \clearpage\null\newpage
 \fi
+}
+
+% chapter heading style
+\newbox\chapternumberbox
+\renewcommand{\chapterlinesformat}[3]{%
+  \savebox\chapternumberbox{
+    \ifstr{#2}{}{}{
+      \fontsize{100}{100}\normalfont\sffamily\bfseries
+      \thechapter}%
+    }%
+    \parbox[t]{\dimexpr\linewidth-\wd\chapternumberbox-1em}{%
+      \raggedleft
+      \ifstr{#2}{}{}{
+        \makebox[1em][l]{\normalfont\normalsize\slshape\chapapp}\\
+      }%
+      #3%
+    }\quad
+    \raisebox{-1.75\baselineskip}{\usebox\chapternumberbox}\par
 }
