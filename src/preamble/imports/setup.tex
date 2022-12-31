@@ -63,18 +63,25 @@
 \setcounter{secnumdepth}{4}
 \setcounter{tocdepth}{4}
 
-\DeclareNewTOC[listname={Gleichungsverzeichnis},type=equation]{loe}
-\makeatletter% because of the `@' in `\@currenvir` and `\@ne`
-\newcommand{\setequationentry}[1]{%
-  \begingroup
-    \Ifstr{\@currenvir}{equation}{}{%
-      \advance \value{equation} by \@ne\relax%
+\DeclareNewTOC[
+  listname={Gleichungsverzeichnis},
+  type=equation,
+  counterwithin=chapter,
+  tocentryindent:=figure,
+  tocentrynumwidth:=figure
+  ]{loe}
+\newcommand{\setequationentry}[2][]{%
+    \addtocounter{equation}{1}%
+    \addxcontentsline{loe}{equation}[\theequation]{#2}%
+    \ifstrempty{#1}{}{%
+      \footnotesize
+      \textcolor{HighlightColor}{\textbf{\textsf{Gleichung \theequation :}}} #1
+      \normalsize
+      %
     }%
-    \addxcontentsline{loe}{equation}[\theequation]{#1}%
-  \endgroup
-  \ignorespaces
+    \addtocounter{equation}{-1}%
+  \ignorespaces%
 }
-\makeatother% because of the `\makeatletter' above
 
 % HEADER & FOOTER
 \usepackage{scrlayer}
