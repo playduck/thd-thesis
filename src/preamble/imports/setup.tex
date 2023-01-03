@@ -47,7 +47,10 @@
   margin=15pt,
   font=footnotesize,
   labelfont={color=HighlightColor,bf,sf},
-  ]{caption}
+]{caption}
+\DeclareCaptionLabelFormat{standard}{#1 #2.}
+\captionsetup[figure]{labelformat=standard, labelsep=colon}
+
 \usepackage{subcaption}
 \usepackage{wrapfig}
 \interfootnotelinepenalty=10000
@@ -55,8 +58,8 @@
 % TABLE
 \usepackage{tabularx}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
-\captionsetup[table]{labelformat=simple, labelsep=colon}
-\captionsetup[subtable]{labelformat=simple, labelsep=colon}
+\captionsetup[table]{labelformat=standard, labelsep=colon}
+\captionsetup[subtable]{labelformat=standard, labelsep=colon}
 
 % TOC
 \setuptoc{toc}{leveldown}% toc at section level
@@ -75,7 +78,7 @@
     \addxcontentsline{loe}{equation}[\theequation]{#2}%
     \ifstrempty{#1}{}{%
       \footnotesize
-      \textcolor{HighlightColor}{\textbf{\textsf{Gleichung \theequation :}}} #1
+      \textcolor{HighlightColor}{\textbf{\textsf{Gleichung \theequation.:}}} #1
       \normalsize
       %
     }%

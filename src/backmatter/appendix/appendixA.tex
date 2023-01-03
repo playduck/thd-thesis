@@ -1,9 +1,7 @@
 \section{Beispiel Anhang}
 \label{apx:sec:exampleAppendix}
 
-\lipsum[1-5]
-
-\begin{table}
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
         \hline
@@ -13,3 +11,20 @@
     \end{tabular}
 \caption[Testtabelle]{Testtabelle um zu sehen, dass \texttt{float} Umgebungen auch im Anhang korrekt nummeriert werden.}
 \end{table}
+
+\begin{figure}[H]
+    \caption[Test A]{Test B}
+\end{figure}
+
+\setequationentry[Test A]{Test B}
+\begin{equation}
+    c = \sqrt{a^{2} + b^{2}}
+    \label{eq:sqrt}
+\end{equation}
+
+\begin{lstlisting}[
+    language=C,
+    caption={Test A}, language=C++, label=code:test, float=h
+]
+    printf("test\n");
+\end{lstlisting}
