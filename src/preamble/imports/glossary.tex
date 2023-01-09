@@ -6,10 +6,37 @@
 \usepackage[automake, nonumberlist, nogroupskip]{glossaries-extra}
 
 \renewcommand*{\glsclearpage}{} % remove gloassary pagebreak
-% \renewcommand*{\@@glossarysec}{section}
 \setabbreviationstyle[acronym]{long-short}
-\renewcommand*{\glstextformat}[1]{\textit{#1}} % cursive acronyms
-\renewcommand\glstreepredesc{\tabto{4cm}} % glossary spacing
+% \renewcommand*{\glstextformat}[1]{\textit{#1}} % cursive acronyms
+
+% glossary length
+% length of parameter
+\glssetwidest[0]{Fachausdrücken}
+% uncomment this to use the longest glossary entry as spacing
+% \renewcommand{\glossarypreamble}{%
+%   \glsfindwidesttoplevelname[\currentglossary]}
+
+\makeatletter
+\newglossarystyle{alttree2}{%
+ \setglossarystyle{alttree}%
+  \renewcommand{\glossentry}[2]{%
+    \ifnum\@gls@prevlevel=0\relax
+    \else
+       \settowidth{\glstreeindent}{\glstreenamefmt{\@glswidestname\hspace{1em}}}%
+    \fi
+      \hangindent\glstreeindent
+      \parindent\glstreeindent
+      \makebox[0pt][r]{%
+        \parbox[t]{\glstreeindent}{\raggedright%
+          \glsentryitem{##1}\glstreenamefmt{\glstarget{##1}{\glossentryname{##1}}}%
+        }%
+      }%
+      \ifglshassymbol{##1}{(\glossentrysymbol{##1})\space}{}%
+      \glossentrydesc{##1}\glspostdescription \space ##2\\[2ex]
+      \def\@gls@prevlevel{0}%
+  }%
+}
+\makeatother
 
 % enter your own acronyms and glossary entries here
 % use in the text using the \gls{} and \acrshort{} or \acr... family of commands
@@ -19,5 +46,7 @@
 
 % --------------------------------- Glossary -------------------------------- %
 \newglossaryentry{glossary}{name={Glossar}, description={Eine kurze Sammlung von Fachausdrücken}}
+\newglossaryentry{abc}{name={Langer Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary Namen}, description={Eine kurze Sammlung von Fachausdrücken}}
+\newglossaryentry{test}{name={Test}, symbol={$\dagger$}, description={Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken}}
 
 \makeglossaries
