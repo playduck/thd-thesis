@@ -28,11 +28,14 @@
       \parindent\glstreeindent
       \makebox[0pt][r]{%
         \parbox[t]{\glstreeindent}{\raggedright%
+          \setlength{\baselineskip}{-0.8em}%
           \glsentryitem{##1}\glstreenamefmt{\glstarget{##1}{\glossentryname{##1}}}%
         }%
       }%
-      \ifglshassymbol{##1}{(\glossentrysymbol{##1})\space}{}%
-      \glossentrydesc{##1}\glspostdescription \space ##2\\[2ex]
+      \parbox[t]{\linewidth-\glstreeindent}{%
+        \ifglshassymbol{##1}{(\glossentrysymbol{##1})\space}{}%
+        \glossentrydesc{##1}\glspostdescription \space ##2%
+      }\par
       \def\@gls@prevlevel{0}%
   }%
 }
@@ -46,7 +49,9 @@
 
 % --------------------------------- Glossary -------------------------------- %
 \newglossaryentry{glossary}{name={Glossar}, description={Eine kurze Sammlung von Fachausdrücken}}
-\newglossaryentry{abc}{name={Langer Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary NamenLanger Glossary Namen}, description={Eine kurze Sammlung von Fachausdrücken}}
-\newglossaryentry{test}{name={Test}, symbol={$\dagger$}, description={Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken}}
+\newglossaryentry{abc}{name={Langer Glossary Namen}, description={Eine kurze Sammlung von Fachausdrücken}}
+\newglossaryentry{def}{name={Langer Glossary Namen}, description={Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken}}
+\newglossaryentry{g}{name={Langer Glossary Namen Langer Glossary Namen}, description={Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken}}
+\newglossaryentry{test}{name={Test}, symbol={$\dagger$}, description={Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken.}}
 
 \makeglossaries
