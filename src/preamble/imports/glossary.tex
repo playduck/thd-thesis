@@ -7,53 +7,27 @@
 
 \renewcommand*{\glsclearpage}{} % remove gloassary pagebreak
 \setabbreviationstyle[acronym]{long-short}
+\setglossarystyle{long}
+\renewenvironment{theglossary}%
+  {\begin{longtable}[l]{p{.5\glsdescwidth}p{\glsdescwidth}}}%
+  {\end{longtable}}
+\renewcommand{\glsnamefont}[1]{\textbf{#1}}
 % \renewcommand*{\glstextformat}[1]{\textit{#1}} % cursive acronyms
-
-% glossary length
-% length of parameter
-\glssetwidest[0]{Fachausdrücken}
-% uncomment this to use the longest glossary entry as spacing
-% \renewcommand{\glossarypreamble}{%
-%   \glsfindwidesttoplevelname[\currentglossary]}
-
-\makeatletter
-\newglossarystyle{alttree2}{%
- \setglossarystyle{alttree}%
-  \renewcommand{\glossentry}[2]{%
-    \ifnum\@gls@prevlevel=0\relax
-    \else
-       \settowidth{\glstreeindent}{\glstreenamefmt{\@glswidestname\hspace{1em}}}%
-    \fi
-      \hangindent\glstreeindent
-      \parindent\glstreeindent
-      \setstretch{0.7}%
-      \makebox[0pt][r]{%
-        \parbox[t]{\glstreeindent}{\raggedright%
-          \glsentryitem{##1}\glstreenamefmt{\glstarget{##1}{\glossentryname{##1}}}%
-        }%
-      }%
-      \parbox[t]{\linewidth-\glstreeindent}{%
-        \ifglshassymbol{##1}{(\glossentrysymbol{##1})\space}{}%
-        \glossentrydesc{##1}\glspostdescription \space ##2%
-      }\\[1ex]
-      \def\@gls@prevlevel{0}%
-  }%
-}
-\makeatother
 
 % enter your own acronyms and glossary entries here
 % use in the text using the \gls{} and \acrshort{} or \acr... family of commands
 
 % --------------------------------- Acronyms -------------------------------- %
 \newacronym{acr}{ACR}{Acronym}
-\newacronym{acr1}{LangesAkronymWarumAuchImmerNurMalSoZumTestWeilIchSoLustigBin}{Acronym}
-\newacronym{acr2}{ACR 2}{Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken}
+\newacronym{acr1}{LangesAkronymWarumAuchImmerNurMalSoZumTestWeilIchSoLustigBin}{Ein sehr langes Akronym}
+\newacronym{acr2}{ACR 2}{Eine sehr lange Beschreibung eines Akronyms. Das ist dazu da um zu schauen, wie sich das System verhält und wie un-ansichtlich das Akronymverzeichnis in der sogenannten Frontmatter ist.}
 
 % --------------------------------- Glossary -------------------------------- %
 \newglossaryentry{glossary}{name={Glossar 1}, description={Eine kurze Sammlung von Fachausdrücken}}
-\newglossaryentry{abc}{name={Langer Glossary Namen 1}, description={Eine kurze Sammlung von Fachausdrücken}}
-\newglossaryentry{def}{name={Langer Glossary Namen 2}, description={Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken}}
+\newglossaryentry{abc}{name={Langer Glossary Namen 1}, description={Eine kurze Beschreibung}}
+\newglossaryentry{def}{name={Langer Glossary Namen 2}, description={Eine lange Sammlung von Fachausdrücken, sogar eine sehr lange Sammlung von Fachausdrücken. Wow. Richtig lange Sammlung.}}
 \newglossaryentry{g}{name={Sehr sehr langer Glossary Name, wow schau mal wie lang}, description={Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken}}
 \newglossaryentry{test}{name={Test}, symbol={$\dagger$}, description={Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken. Eine lange Sammlung von Fachausdrücken.}}
 
+\glsenablehyper
 \makeglossaries
