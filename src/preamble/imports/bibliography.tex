@@ -16,6 +16,8 @@
 
 % forbid pagebreaks in bib entry
 \patchcmd{\bibsetup}{\interlinepenalty=5000}{\interlinepenalty=10000}{}{}
+\setcounter{biburllcpenalty}{9000}% Kleinbuchstaben
+\setcounter{biburlucpenalty}{9000}% Großbuchstaben
 
 % ------------------------------- bib resouces ------------------------------- %
 % you can add multiple files for different resources here
