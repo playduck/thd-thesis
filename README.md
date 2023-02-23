@@ -7,6 +7,15 @@ It's opinionated regarding filestructure and packages but tries to provide reaso
 
 **This template is provided "as is" without warranty or support under BSD-3.**
 
+## Features
+
+- Easy to use without knowing LaTeX
+- Flexible to do whatever you want
+- Logical File-Structure
+- Tons of useful packages
+- Included build system
+- THD Style (frontpage, Declaration, THD Colors)
+
 ## Building
 
 The project uses LuaLaTeX and [makefile](makefile).
